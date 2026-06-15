@@ -1,0 +1,120 @@
+/* ═══════════════════════════════════════════════════════════
+   事業詳細ページ共通 (運送 / 整備 / 用品販売)
+   depends on styles.css for :root vars, fonts, loader, ticker, nav, footer
+   Built from handoff svc-detail.css, with fluid display type and
+   extra mobile padding added for production.
+   ═══════════════════════════════════════════════════════════ */
+
+/* 詳細ヒーロー */
+.dh{position:relative;background:#000;color:#fff;padding:168px 64px 96px;overflow:hidden;border-bottom:6px solid var(--yl)}
+.dh-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.3;mix-blend-mode:luminosity;filter:contrast(1.12);will-change:transform}
+.dh-grain{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 18px,transparent 18px 36px);pointer-events:none}
+.dh-in{position:relative;z-index:3;max-width:1280px;margin:0 auto}
+.dh-crumb{font-family:"Archivo Black";font-size:11px;letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:30px;flex-wrap:wrap}
+.dh-crumb a{color:rgba(255,255,255,.55)}
+.dh-crumb a:hover{color:var(--yl)}
+.dh-crumb .sep{color:var(--yl)}
+.dh-crumb .cur{color:var(--yl)}
+.dh .eytag{display:inline-flex;align-items:center;gap:10px;background:var(--yl);color:#000;font-family:"Archivo Black";font-size:12px;letter-spacing:.12em;padding:7px 14px;margin-bottom:22px}
+.dh h1{font-family:"Anton";font-size:clamp(3rem,13vw,148px);line-height:.88;letter-spacing:-.01em}
+.dh h1 em{font-style:italic;color:var(--yl);text-shadow:5px 5px 0 #000}
+.dh .jp{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:clamp(1.6rem,5vw,38px);margin:14px 0 22px;letter-spacing:.02em}
+.dh .lead{font-size:17px;line-height:1.95;max-width:640px;color:rgba(255,255,255,.85);font-weight:500}
+.dh-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
+.dh-tabs a{font-family:"Archivo Black";font-size:12px;letter-spacing:.06em;padding:11px 18px;border:3px solid var(--yl);color:#fff;transition:background .15s,color .15s}
+.dh-tabs a:hover{background:var(--yl);color:#000}
+.dh-tabs a.cur{background:var(--yl);color:#000}
+
+/* セクション枠 */
+.dsec{padding:120px 64px;position:relative;overflow:hidden}
+.dsec.light{background:var(--off)}
+.dsec.dark{background:#000;color:#fff}
+.dsec-in{max-width:1200px;margin:0 auto}
+.dsec .ey{display:inline-block;font-family:"Archivo Black";font-size:12px;letter-spacing:.18em;background:#000;color:var(--yl);padding:7px 14px;margin-bottom:22px}
+.dsec.dark .ey{background:var(--yl);color:#000}
+.dsec h2{font-family:"Anton";font-size:clamp(2.2rem,8vw,72px);line-height:.95;color:#000;margin-bottom:14px}
+.dsec.dark h2{color:#fff}
+.dsec h2 em{font-style:normal;color:var(--cy)}
+.dsec .sub{font-size:17px;line-height:1.9;max-width:680px;font-weight:500;color:#222;margin-bottom:54px}
+.dsec.dark .sub{color:rgba(255,255,255,.8)}
+
+/* 事業カード grid */
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dgrid.two{grid-template-columns:repeat(2,1fr)}
+.dcard{background:#fff;border:3px solid #000;box-shadow:7px 7px 0 #000;overflow:hidden;position:relative;transition:transform .22s,box-shadow .22s}
+.dcard:hover{transform:translate(-4px,-4px);box-shadow:11px 11px 0 var(--cy)}
+.dcard .img{aspect-ratio:16/10;background-size:cover;background-position:center;border-bottom:3px solid #000;position:relative}
+.dcard .img .tg{position:absolute;top:12px;left:12px;background:#000;color:var(--yl);font-family:"Archivo Black";font-size:10px;letter-spacing:.12em;padding:5px 10px}
+.dcard .bd{padding:24px 24px 28px;position:relative}
+.dcard .rn{position:absolute;top:-34px;right:18px;font-family:"Anton";font-size:46px;color:var(--cy);background:#000;width:60px;height:60px;display:grid;place-items:center;border:3px solid #000}
+.dcard h3{font-family:"Anton";font-size:30px;line-height:1.05;color:#000;margin-bottom:6px}
+.dcard .en{font-family:"Archivo Black";font-size:10px;letter-spacing:.2em;color:var(--cy);margin-bottom:12px}
+.dcard p{font-size:14px;line-height:1.85;color:#333;font-weight:500}
+
+/* 特長/スペック バンド (水色) */
+.dfeat{background:var(--cy);padding:110px 64px;border-top:6px solid #000;border-bottom:6px solid #000;position:relative;overflow:hidden}
+.dfeat::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(0,0,0,.045) 0 22px,transparent 22px 44px);pointer-events:none}
+.dfeat-in{max-width:1200px;margin:0 auto;position:relative}
+.dfeat .ey{background:#000;color:var(--yl)}
+.dfeat h2{font-family:"Anton";font-size:clamp(2rem,7.5vw,64px);color:#000;line-height:.95;margin-bottom:48px}
+.dfeat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fcard{background:#fff;border:3px solid #000;box-shadow:6px 6px 0 #000;padding:28px 24px}
+.fcard .fn{font-family:"Anton";font-size:40px;color:var(--cy);line-height:1;margin-bottom:10px}
+.fcard h4{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:19px;color:#000;margin-bottom:8px}
+.fcard p{font-size:13.5px;line-height:1.8;color:#333;font-weight:500}
+
+/* スペック行リスト */
+.dspecs{margin-top:8px;border-top:3px solid #000}
+.dspecs>div{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:18px 4px;border-bottom:1px dashed rgba(0,0,0,.25);align-items:baseline}
+.dspecs dt{font-family:"Archivo Black";font-size:12px;letter-spacing:.08em;color:#000}
+.dspecs dd{font-family:"Zen Kaku Gothic New";font-weight:500;font-size:15px;color:#1a1a1a;line-height:1.7}
+
+/* フロー */
+.dflow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}
+.dstep{background:#1a1a1a;border:3px solid var(--yl);padding:26px 20px;position:relative}
+.dstep .sn{font-family:"Anton";font-size:30px;color:var(--yl);line-height:1}
+.dstep h4{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:18px;color:#fff;margin:8px 0 8px}
+.dstep p{font-size:13px;line-height:1.75;color:rgba(255,255,255,.72);font-weight:500}
+.dstep::after{content:"▸";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--yl);font-size:20px;z-index:2}
+.dstep:last-child::after{display:none}
+
+/* CTA */
+.dcta{background:var(--yl);padding:110px 64px;text-align:center;position:relative;border-top:6px solid #000}
+.dcta::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,#000 0 30px,#fff 30px 60px)}
+.dcta h2{font-family:"Anton";font-size:clamp(2.5rem,10vw,96px);color:#000;line-height:.92}
+.dcta p{font-size:18px;font-weight:600;color:#000;margin:24px auto 36px;max-width:620px;line-height:1.8}
+.dcta-acts{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.dcta-ph{font-family:"Anton";font-size:clamp(2.2rem,8.5vw,72px);color:#000;line-height:1;margin-top:40px}
+.dcta-ph small{display:block;font-family:"Archivo Black";font-size:12px;letter-spacing:.26em;margin-top:10px}
+
+/* 他事業リンク */
+.dother{background:#000;padding:90px 64px;border-top:6px solid var(--yl)}
+.dother-in{max-width:1200px;margin:0 auto}
+.dother .ey{display:inline-block;font-family:"Archivo Black";font-size:12px;letter-spacing:.18em;background:var(--yl);color:#000;padding:7px 14px;margin-bottom:28px}
+.dother-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.olink{display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:3px solid var(--yl);padding:28px 32px;transition:background .18s,transform .18s}
+.olink:hover{background:var(--yl);transform:translateX(4px)}
+.olink .ot{font-family:"Anton";font-size:clamp(1.6rem,5vw,34px);color:#fff}
+.olink:hover .ot{color:#000}
+.olink .oe{font-family:"Archivo Black";font-size:11px;letter-spacing:.16em;color:var(--cy);display:block;margin-bottom:4px}
+.olink:hover .oe{color:#000}
+.olink .oar{font-family:"Anton";font-size:40px;color:var(--yl)}
+.olink:hover .oar{color:#000}
+
+@media(max-width:980px){
+  .dgrid,.dgrid.two,.dfeat-grid{grid-template-columns:1fr}
+  .dflow{grid-template-columns:1fr 1fr}
+  .dstep::after{display:none}
+  .dother-grid{grid-template-columns:1fr}
+  .dspecs>div{grid-template-columns:1fr;gap:6px}
+}
+@media(max-width:860px){
+  .dh{padding:140px 24px 72px}
+  .dsec,.dfeat,.dcta,.dother{padding:72px 24px}
+}
+@media(max-width:600px){
+  .dflow{grid-template-columns:1fr}
+  .dcard .rn{width:50px;height:50px;font-size:36px;top:-28px}
+  .olink{padding:22px 22px}
+  .olink .oar{font-size:32px}
+}
