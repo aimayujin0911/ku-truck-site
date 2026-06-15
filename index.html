@@ -38,7 +38,14 @@
     <span class="stk"><span class="tread"></span><span class="lname">TRUCK ＆ TYRE SERVICE</span><span class="tread"></span></span>
   </a>
   <div class="menu" id="menu">
-    <a href="#services"><em>01</em>SERVICES</a><a href="#fleet"><em>02</em>FLEET</a><a href="#company"><em>03</em>COMPANY</a><a href="#recruit"><em>04</em>RECRUIT</a><a href="#contact"><em>05</em>CONTACT</a>
+    <div class="has-sub">
+      <a href="#services"><em>01</em>SERVICES</a>
+      <div class="submenu">
+        <a href="transport.html">運送・倉庫</a>
+        <a href="maintenance.html">整備・洗浄</a>
+        <a href="parts.html">タイヤ・用品販売</a>
+      </div>
+    </div><a href="#fleet"><em>02</em>FLEET</a><a href="#company"><em>03</em>COMPANY</a><a href="#recruit"><em>04</em>RECRUIT</a><a href="#contact"><em>05</em>CONTACT</a>
   </div>
   <button class="cta" onclick="location.href='#contact'">CONTACT <span class="ar">→</span></button>
   <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="menu">☰</button>
@@ -57,7 +64,7 @@
   <div class="hero-in">
     <div class="hero-tag"><span class="dt"></span>MISATO, SAITAMA — SINCE 1981</div>
     <h1 class="title">
-      <span class="ln1">TRUCK ＆</span>
+      <span class="ln1">TRUCK<span class="amp">＆</span></span>
       <span class="ln2"><em>TYRE</em>.</span>
       <span class="ln3">運ぶ。直す。売る。トラックのこと、ぜんぶ。</span>
     </h1>
@@ -220,6 +227,60 @@
     <button class="btn btn-yl" onclick="location.href='#recruit'">採用エントリー <span class="ar">→</span></button>
   </div>
   <a class="hit-ph" href="tel:0489522184">048 — 952 — 2184<small>お気軽にお問い合わせください</small></a>
+
+  <!-- ▼ お問い合わせフォーム（FormSubmit）。送信先メール確定後に class の "pending" を外し、action のアドレスを差し替える ▼ -->
+  <form class="cform pending" action="https://formsubmit.co/REPLACE_WITH_KU_EMAIL" method="POST">
+    <div class="fhead">お問い合わせフォーム</div>
+    <div class="fsub">CONTACT FORM — 運送・倉庫 / 整備・洗浄 / タイヤ・用品販売 / 採用</div>
+
+    <!-- FormSubmit 設定 -->
+    <input type="hidden" name="_subject" value="【KU公式サイト】お問い合わせ">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="true">
+    <input type="hidden" name="_next" value="https://aimayujin0911.github.io/ku-truck-site/thanks.html">
+    <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <div class="row two">
+      <div class="row">
+        <label for="f-name">お名前 <span class="req">必須</span></label>
+        <input id="f-name" type="text" name="お名前" required placeholder="例）小島 信行">
+      </div>
+      <div class="row">
+        <label for="f-company">会社名・屋号</label>
+        <input id="f-company" type="text" name="会社名" placeholder="例）株式会社○○運輸">
+      </div>
+    </div>
+
+    <div class="row two">
+      <div class="row">
+        <label for="f-tel">電話番号</label>
+        <input id="f-tel" type="tel" name="電話番号" placeholder="例）090-1234-5678" inputmode="tel">
+      </div>
+      <div class="row">
+        <label for="f-email">メールアドレス <span class="req">必須</span></label>
+        <input id="f-email" type="email" name="メールアドレス" required placeholder="例）info@example.com">
+      </div>
+    </div>
+
+    <div class="row">
+      <label for="f-type">お問い合わせ種別</label>
+      <select id="f-type" name="お問い合わせ種別">
+        <option value="運送・倉庫">運送・倉庫について</option>
+        <option value="整備・洗浄">整備・洗浄（インジェクター/マフラー洗浄・出張交換）について</option>
+        <option value="タイヤ・用品販売">タイヤ・用品販売（PIRELLI / AdBlue / 買取）について</option>
+        <option value="採用">採用について</option>
+        <option value="その他">その他</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label for="f-msg">お問い合わせ内容 <span class="req">必須</span></label>
+      <textarea id="f-msg" name="お問い合わせ内容" required placeholder="荷物の内容・日程・台数・ご希望など、お気軽にどうぞ。"></textarea>
+    </div>
+
+    <button type="submit" class="cbtn">この内容で送信する <span class="ar">→</span></button>
+    <p class="note">送信いただいた内容は、当社からの折り返しのみに利用します。<br>お急ぎの場合は TEL 048-952-2184（平日）へどうぞ。</p>
+  </form>
 </section>
 
 <!-- ═══════ FOOTER ═══════ -->
