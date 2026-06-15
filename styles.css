@@ -20,11 +20,9 @@ a{color:inherit;text-decoration:none;cursor:pointer}
 /* Loader */
 .loader{position:fixed;inset:0;background:var(--yl);z-index:999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;transition:opacity .5s .4s,visibility 0s 1s}
 .loader.hide{opacity:0;visibility:hidden}
-.lo-st{font-size:120px;line-height:1;animation:spin 1.5s linear infinite,color 2s linear infinite}
+.lo-tyre{width:clamp(96px,26vw,140px);height:auto;animation:spin 1.6s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes color{0%,100%{color:#000}50%{color:#fff}}
-.lo-tx{font-family:"Anton";font-size:28px;text-align:center;line-height:1.2;letter-spacing:.04em}
-.lo-tx span{display:block;font-family:"Space Grotesk";font-size:11px;letter-spacing:.4em;font-weight:600;color:rgba(0,0,0,.6);margin-top:8px}
+.lo-tx{font-family:"Space Grotesk";font-size:11px;letter-spacing:.4em;font-weight:600;color:rgba(0,0,0,.6);text-align:center;margin-top:2px}
 
 /* Top ticker */
 .topbar{background:#000;color:var(--yl);padding:8px 0;overflow:hidden;border-bottom:3px solid var(--yl);position:fixed;top:0;left:0;right:0;z-index:60}
@@ -106,7 +104,7 @@ h2.bg .yl{background:var(--yl);padding:0 14px;display:inline-block;transform:rot
 
 /* WHO (about) */
 .who{background:var(--off);padding:140px 64px;position:relative;overflow:hidden}
-.who::before{content:"★";position:absolute;top:80px;right:80px;font-size:200px;color:var(--mg);opacity:.15;animation:spin 18s linear infinite}
+.who::before{content:"";position:absolute;top:64px;right:64px;width:220px;height:220px;background-color:var(--mg);opacity:.1;-webkit-mask:url('assets/tyre.svg') center/contain no-repeat;mask:url('assets/tyre.svg') center/contain no-repeat;animation:spin 22s linear infinite;pointer-events:none}
 .who-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;max-width:1280px;margin:0 auto}
 .who-text p{font-size:17px;line-height:2;color:#000;margin-bottom:18px;font-weight:500}
 .who-text .hl{background:var(--yl);padding:0 6px;font-weight:700;box-shadow:3px 3px 0 #000}
@@ -174,7 +172,7 @@ h2.bg .yl{background:var(--yl);padding:0 14px;display:inline-block;transform:rot
 .jn-perks h3{font-family:"Anton";font-size:clamp(2rem,6vw,48px);color:var(--yl);margin-bottom:18px;line-height:1}
 .jn-perks ul{list-style:none}
 .jn-perks li{font-family:"Archivo Black";font-size:14px;color:#fff;letter-spacing:.05em;padding:14px 0;border-bottom:2px dashed rgba(255,255,255,.2);display:flex;align-items:center;gap:12px}
-.jn-perks li::before{content:"★";color:var(--yl);font-size:20px}
+.jn-perks li::before{content:"";flex:0 0 auto;width:18px;height:18px;background-color:var(--yl);-webkit-mask:url('assets/tyre.svg') center/contain no-repeat;mask:url('assets/tyre.svg') center/contain no-repeat}
 .jn-perks .btn{margin-top:24px;background:var(--yl);color:#000;border-color:#fff;box-shadow:5px 5px 0 #fff}
 .jn-perks .btn:hover{box-shadow:2px 2px 0 #fff}
 
@@ -265,3 +263,44 @@ section[id]{scroll-margin-top:120px}
   .hero-bg{transform:none!important}
   .hero-stickers .sk{transform:none!important}
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Brand logo lockup — KU TRUCK ＆ TYRE SERVICE
+   CSS recreation of the supplied wordmark (KU + treaded subtitle).
+   Swap for the official artwork by putting it at assets/logo.svg
+   and replacing .logo markup with <img src="assets/logo.svg">.
+   ═══════════════════════════════════════════════════════════ */
+.logo{display:inline-flex;align-items:center;gap:11px;line-height:1;color:#000}
+.logo .ku{font-family:"Archivo Black",sans-serif;font-size:34px;letter-spacing:-.05em}
+.logo .stk{display:flex;flex-direction:column;gap:3px;align-items:stretch}
+.logo .tread{height:4px;background:repeating-linear-gradient(90deg,currentColor 0 5px,transparent 5px 9px)}
+.logo .lname{font-family:"Archivo Black",sans-serif;font-size:10px;letter-spacing:.1em;white-space:nowrap;padding:1px 0;text-align:center}
+.logo.inv{color:#fff}
+.logo.stacked{flex-direction:column;gap:9px}
+.logo.stacked .ku{font-size:clamp(48px,15vw,76px);letter-spacing:-.04em}
+.logo.stacked .lname{font-size:13px;letter-spacing:.2em}
+.logo.stacked .tread{height:6px}
+.nav .logo{flex:0 0 auto}
+.ft .logo .ku{font-size:40px}
+.ft .logo .lname{font-size:11px}
+@media(max-width:600px){
+  .logo .ku{font-size:27px}
+  .logo .lname{font-size:9px;letter-spacing:.08em}
+}
+@media(max-width:400px){
+  .nav .logo .stk{display:none}
+}
+
+/* 企業理念 (corporate philosophy) — homepage company section */
+.who-creed{margin-top:36px}
+.who-creed h4{font-family:"Anton";font-size:30px;color:#000;margin-bottom:16px}
+.who-creed ul{list-style:none;display:grid;gap:12px}
+.who-creed li{font-size:14px;line-height:1.7;font-weight:500;color:#222;padding-left:16px;border-left:5px solid var(--yl)}
+.who-creed li b{display:block;font-family:"Archivo Black";font-size:13px;letter-spacing:.03em;color:#000;margin-bottom:3px}
+
+/* グループ会社 chips */
+.co-group{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.co-group span{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13px;background:#fff;border:2px solid #000;box-shadow:3px 3px 0 var(--yl);padding:6px 12px}
+
+/* Tyre inline icon — replaces the old ★ decoration; inherits text color */
+.tyre-ic{display:inline-block;width:1em;height:1em;vertical-align:-.14em;flex:0 0 auto;background-color:currentColor;-webkit-mask:url('assets/tyre.svg') center/contain no-repeat;mask:url('assets/tyre.svg') center/contain no-repeat}
