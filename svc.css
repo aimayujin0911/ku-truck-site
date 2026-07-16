@@ -101,8 +101,47 @@
 .olink .oar{font-family:"Anton";font-size:40px;color:var(--yl)}
 .olink:hover .oar{color:#000}
 
+/* 4項目グリッド (用品販売・トラック売買) */
+.dgrid.dgrid4{grid-template-columns:repeat(4,1fr)}
+.dgrid.dgrid4 .dcard h3{font-size:24px}
+@media(max-width:1200px){.dgrid.dgrid4{grid-template-columns:repeat(2,1fr)}}
+
+/* クリックで説明ポップアップ (7/10打合せ決定) */
+.dcard.has-pop{cursor:pointer}
+.dcard.has-pop .bd::after{content:"＋ タップで詳しく";display:inline-block;margin-top:14px;font-family:"Archivo Black";font-size:11px;letter-spacing:.08em;color:var(--cy)}
+.pop-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+.pop-overlay.open{opacity:1;visibility:visible}
+.pop-box{position:relative;max-width:560px;width:100%;max-height:86dvh;overflow:auto;background:#fff;border:4px solid #000;box-shadow:12px 12px 0 var(--cy)}
+.pop-img{aspect-ratio:16/8;background-size:cover;background-position:center;border-bottom:4px solid #000}
+.pop-bd{padding:28px 30px 34px}
+.pop-bd h3{font-family:"Anton";font-size:30px;line-height:1.05;color:#000;margin-bottom:14px}
+.pop-bd h3 br{display:none}
+.pop-bd p{font-size:15px;line-height:2;color:#222;font-weight:500}
+.pop-close{position:absolute;top:12px;right:12px;width:44px;height:44px;background:#000;color:var(--yl);border:3px solid #000;font-size:22px;line-height:1;cursor:pointer;z-index:2;box-shadow:3px 3px 0 var(--yl)}
+.pop-close:active{transform:translate(2px,2px)}
+
+/* 倉庫 (運送ページ下部・写真2枚＋簡潔な説明) */
+.wh-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;align-items:center}
+.wh-txt{font-size:16px;line-height:2;font-weight:600;color:#000;max-width:480px}
+.wh-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.wh-ph{aspect-ratio:4/3;background:#fff;border:3px dashed #000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13px;color:#555}
+.wh-ph span{font-family:"Archivo Black";font-size:11px;letter-spacing:.2em;background:#000;color:var(--yl);padding:4px 10px}
+
+/* 代表挨拶ページ */
+.msg-grid{display:grid;grid-template-columns:340px 1fr;gap:48px;align-items:start;margin-top:48px}
+.msg-ph{aspect-ratio:3/4;background:#fff;border:4px solid #000;box-shadow:8px 8px 0 var(--cy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13px;color:#555;position:sticky;top:140px}
+.msg-ph span{font-family:"Archivo Black";font-size:11px;letter-spacing:.2em;background:#000;color:var(--yl);padding:4px 10px}
+.msg-txt p{font-size:16px;line-height:2.15;color:#1a1a1a;font-weight:500;margin-bottom:26px}
+.msg-sign{margin-top:38px;display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.msg-sign .cmp{font-family:"Space Grotesk";font-size:12px;letter-spacing:.06em;color:#555;font-weight:600}
+.msg-sign .role{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13px;color:#000}
+.msg-sign .name{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:30px;color:#000;letter-spacing:.14em}
+
 @media(max-width:980px){
-  .dgrid,.dgrid.two,.dfeat-grid{grid-template-columns:1fr}
+  .dgrid,.dgrid.two,.dgrid.dgrid4,.dfeat-grid{grid-template-columns:1fr}
+  .wh-grid{grid-template-columns:1fr}
+  .msg-grid{grid-template-columns:1fr;gap:32px}
+  .msg-ph{position:static;max-width:340px;margin:0 auto}
   .dflow{grid-template-columns:1fr 1fr}
   .dstep::after{display:none}
   .dother-grid{grid-template-columns:1fr}

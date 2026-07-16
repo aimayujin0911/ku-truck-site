@@ -61,4 +61,50 @@
       if (e.key === 'Escape') setOpen(false);
     });
   }
+
+  // ── Service item popup (7/10打合せ: 項目クリックで簡単な説明をポップアップ) ──
+  var pops = document.querySelectorAll('.has-pop[data-pop]');
+  if (pops.length) {
+    var ov = document.createElement('div');
+    ov.className = 'pop-overlay';
+    ov.innerHTML =
+      '<div class="pop-box" role="dialog" aria-modal="true" aria-labelledby="popTitle">' +
+      '<button class="pop-close" aria-label="閉じる">×</button>' +
+      '<div class="pop-img"></div>' +
+      '<div class="pop-bd"><h3 id="popTitle"></h3><p></p></div>' +
+      '</div>';
+    document.body.appendChild(ov);
+    var popImg = ov.querySelector('.pop-img');
+    var popTitle = ov.querySelector('h3');
+    var popText = ov.querySelector('p');
+
+    function closePop() {
+      ov.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    ov.addEventListener('click', function (e) { if (e.target === ov) closePop(); });
+    ov.querySelector('.pop-close').addEventListener('click', closePop);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closePop();
+    });
+
+    pops.forEach(function (card) {
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      function openPop() {
+        var h = card.querySelector('h3');
+        var img = card.querySelector('.img');
+        popTitle.textContent = h ? h.textContent : '';
+        popText.textContent = card.getAttribute('data-pop');
+        popImg.style.backgroundImage = img ? getComputedStyle(img).backgroundImage : 'none';
+        popImg.style.display = img ? '' : 'none';
+        ov.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      card.addEventListener('click', openPop);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPop(); }
+      });
+    });
+  }
 })();
