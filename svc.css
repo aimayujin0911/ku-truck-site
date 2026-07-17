@@ -131,6 +131,9 @@
 .msg-grid{display:grid;grid-template-columns:340px 1fr;gap:48px;align-items:start;margin-top:48px}
 .msg-ph{aspect-ratio:3/4;background:#fff;border:4px solid #000;box-shadow:8px 8px 0 var(--cy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13px;color:#555;position:sticky;top:140px}
 .msg-ph span{font-family:"Archivo Black";font-size:11px;letter-spacing:.2em;background:#000;color:var(--yl);padding:4px 10px}
+/* 写真未挿入枠の指定用番号バッジ（①②…）。写真挿入時にバッジごと削除する仮UI */
+.ph-num{position:absolute;top:-16px;left:-16px;width:44px;height:44px;display:grid;place-items:center;background:var(--yl);color:#000;border:3px solid #000;border-radius:50%;font-style:normal;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:22px;line-height:1;box-shadow:4px 4px 0 #000;z-index:2}
+.wh-ph{position:relative} /* msg-ph は sticky のままで基準になるため指定不要 */
 .msg-txt p{font-size:16px;line-height:2.15;color:#1a1a1a;font-weight:500;margin-bottom:26px}
 .msg-sign{margin-top:38px;display:flex;flex-direction:column;gap:4px;align-items:flex-end}
 .msg-sign .cmp{font-family:"Space Grotesk";font-size:12px;letter-spacing:.06em;color:#555;font-weight:600}

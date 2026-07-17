@@ -107,4 +107,47 @@
       });
     });
   }
+
+  // ── LINE公式アカウント フロートボタン（7/17打合せ）──────────────────
+  // PCではLINEの友だち追加URLが機能しない（LINEの仕様）ため、
+  // ボタン押下でQRコードをポップアップ表示する。QR画像は受領待ち:
+  // 受領後 assets/line-qr.png を置くだけでプレースホルダから自動で切り替わる。
+  var lineFab = document.createElement('button');
+  lineFab.className = 'line-fab';
+  lineFab.setAttribute('aria-label', 'LINE公式アカウント 友だち追加');
+  lineFab.innerHTML = '<span class="line-ic">LINE</span><span class="line-tx">公式アカウント</span>';
+  document.body.appendChild(lineFab);
+
+  var lineOv = document.createElement('div');
+  lineOv.className = 'line-overlay';
+  lineOv.innerHTML =
+    '<div class="line-box" role="dialog" aria-modal="true" aria-label="LINE友だち追加">' +
+    '<button class="line-close" aria-label="閉じる">×</button>' +
+    '<h3>LINE公式アカウント</h3>' +
+    '<p>QRコードを読み取って友だち追加</p>' +
+    '<img src="assets/line-qr.png" alt="LINE友だち追加QRコード">' +
+    '</div>';
+  document.body.appendChild(lineOv);
+
+  var lineQr = lineOv.querySelector('img');
+  lineQr.addEventListener('error', function () {
+    var ph = document.createElement('div');
+    ph.className = 'line-qr-ph';
+    ph.textContent = 'QRコード準備中（画像受領後に表示されます）';
+    lineQr.replaceWith(ph);
+  });
+
+  function closeLine() {
+    lineOv.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  lineFab.addEventListener('click', function () {
+    lineOv.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  lineOv.addEventListener('click', function (e) { if (e.target === lineOv) closeLine(); });
+  lineOv.querySelector('.line-close').addEventListener('click', closeLine);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLine();
+  });
 })();
