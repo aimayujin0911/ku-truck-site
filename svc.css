@@ -34,7 +34,7 @@
 .dsec.dark .ey{background:var(--yl);color:#000}
 .dsec h2{font-family:"Anton";font-size:clamp(2.2rem,8vw,72px);line-height:.95;color:#000;margin-bottom:14px}
 .dsec.dark h2{color:#fff}
-.dsec h2 em{font-style:normal;color:var(--cy)}
+.dsec h2 em{font-style:normal;color:var(--cy);display:inline-block} /* 強調部分が途中で折り返さず丸ごと改行されるように */
 .dsec .sub{font-size:17px;line-height:1.9;max-width:680px;font-weight:500;color:#222;margin-bottom:54px}
 .dsec.dark .sub{color:rgba(255,255,255,.8)}
 
