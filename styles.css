@@ -39,6 +39,7 @@ a{color:inherit;text-decoration:none;cursor:pointer}
 .brand .nm span{background:#000;color:var(--yl);padding:2px 10px;font-size:14px;letter-spacing:.1em;transform:rotate(-3deg)}
 .menu{margin-left:auto;display:flex;gap:18px;align-items:center}
 .menu a{font-family:"Archivo Black";font-size:13px;letter-spacing:.08em;color:#000;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;transition:background .2s,color .2s,transform .2s}
+.menu .m-only{display:none} /* CONTACTは右端の黒ボタンに一本化。モバイルはボタンが消えるためドロワー内でのみ表示 */
 .menu a em{font-style:normal;font-family:"Space Grotesk";font-size:10px;color:var(--yl);font-weight:700}
 .menu a:hover{background:var(--yl);transform:rotate(-2deg)}
 .cta{padding:12px 22px;background:var(--mg);color:#fff;font-family:"Archivo Black";font-size:12px;letter-spacing:.08em;border:3px solid #000;cursor:pointer;box-shadow:4px 4px 0 #000;transition:transform .15s,box-shadow .15s}
@@ -249,6 +250,7 @@ section[id]{scroll-margin-top:120px}
   .menu a{color:#fff;font-size:18px;width:100%;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,.12);border-radius:0}
   .menu a em{color:var(--yl);margin-right:10px;font-size:13px}
   .menu a:hover{background:var(--yl);color:#000;transform:none}
+  .menu .m-only{display:inline-flex}
   .nav.scr .burger{box-shadow:4px 4px 0 #000}
   /* SERVICES dropdown → expanded inline inside the drawer */
   .menu .has-sub{flex-direction:column;align-items:stretch;width:100%;align-self:auto}
