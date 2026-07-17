@@ -12,6 +12,9 @@
 
   // ── Scroll effects: sticky-nav state, hero parallax, sticker drift ──
   var nav = document.getElementById('nav');
+  // 詳細ページ（黒背景ヒーロー .dh）ではナビが透明だと文字が見えないため、常に白背景(scr)にする
+  var solidNav = !!document.querySelector('.dh');
+  if (nav && solidNav) nav.classList.add('scr');
   var heroBg = document.getElementById('heroBg');
   var stickers = document.querySelectorAll('.hero-stickers .sk');
   var heroSpeed = document.querySelector('.hero') ? 0.4 : 0.35; // subpages scroll a touch slower
@@ -24,7 +27,7 @@
     ticking = true;
     window.requestAnimationFrame(function () {
       var y = window.scrollY;
-      if (nav) nav.classList.toggle('scr', y > 40);
+      if (nav) nav.classList.toggle('scr', solidNav || y > 40);
       if (heroBg) heroBg.style.transform = 'translate3d(0,' + (y * heroSpeed) + 'px,0) scale(1.1)';
       for (var i = 0; i < stickers.length; i++) {
         var sp = stickerSpeeds[i] || 0.6;
