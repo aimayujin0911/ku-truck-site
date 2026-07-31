@@ -120,7 +120,18 @@
 .pop-close{position:absolute;top:12px;right:12px;width:44px;height:44px;background:#000;color:var(--yl);border:3px solid #000;font-size:22px;line-height:1;cursor:pointer;z-index:2;box-shadow:3px 3px 0 var(--yl)}
 .pop-close:active{transform:translate(2px,2px)}
 
-/* 倉庫 (運送ページ下部・写真2枚＋簡潔な説明) */
+/* 倉庫3拠点（実写真＋住所） */
+.wh-lead{font-size:16px;line-height:1.95;font-weight:600;color:#000;max-width:760px;margin-bottom:36px}
+.wh-photos3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.wh-card{margin:0;background:#fff;border:3px solid #000;box-shadow:6px 6px 0 #000}
+.wh-card .img{aspect-ratio:4/3;background-size:cover;background-position:center;border-bottom:3px solid #000}
+.wh-card figcaption{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px}
+.wh-card figcaption b{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:18px;color:#000}
+.wh-card .tsubo{font-family:"Anton";font-size:22px;color:var(--cy);line-height:1}
+.wh-card .ad{font-family:"Zen Kaku Gothic New";font-weight:500;font-size:12.5px;color:#444;line-height:1.6;margin-top:2px}
+@media(max-width:860px){.wh-photos3{grid-template-columns:1fr}}
+
+/* 倉庫 (旧・写真2枚プレースホルダ / 未使用) */
 .wh-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;align-items:center}
 .wh-txt{font-size:16px;line-height:2;font-weight:600;color:#000;max-width:480px}
 .wh-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
