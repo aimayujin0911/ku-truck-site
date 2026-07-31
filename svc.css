@@ -84,7 +84,7 @@
 .dcta h2{font-family:"Anton";font-size:clamp(2.5rem,10vw,96px);color:#000;line-height:.92}
 .dcta p{font-size:18px;font-weight:600;color:#000;margin:24px auto 36px;max-width:620px;line-height:1.8}
 .dcta-acts{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-.dcta-ph{font-family:"Anton";font-size:clamp(2.2rem,8.5vw,72px);color:#000;line-height:1;margin-top:40px}
+.dcta-ph{font-family:"Anton";font-size:clamp(2.2rem,8.5vw,72px);color:#000;line-height:1;margin-top:clamp(56px,10vw,88px)}
 .dcta-ph small{display:block;font-family:"Archivo Black";font-size:12px;letter-spacing:.26em;margin-top:10px}
 
 /* 他事業リンク */
