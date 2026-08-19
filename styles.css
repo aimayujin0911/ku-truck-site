@@ -147,7 +147,7 @@ h2.bg .yl{background:var(--yl);padding:0 14px;display:inline-block;transform:rot
 .svl{list-style:none;margin:14px 0 0;padding:0}
 .svl li{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:15px;color:#fff;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.18);display:flex;align-items:center;gap:10px}
 .svl li::before{content:"▸";color:var(--yl);font-size:14px}
-.what-it .note{margin-top:14px;font-family:"Space Grotesk";font-size:11px;letter-spacing:.03em;color:rgba(255,255,255,.55);line-height:1.6}
+.what-it .note{margin-top:14px;padding-right:66px;font-family:"Space Grotesk";font-size:11px;letter-spacing:.03em;color:rgba(255,255,255,.55);line-height:1.6}
 
 /* RIDES (fleet) */
 .rd{background:var(--cy);padding:140px 64px;position:relative;overflow:hidden;border-top:6px solid #000;border-bottom:6px solid #000}
@@ -214,7 +214,7 @@ h2.bg .yl{background:var(--yl);padding:0 14px;display:inline-block;transform:rot
 .hit-phs .hit-ph{margin-top:0;font-size:clamp(1.9rem,6.5vw,58px)}
 
 /* Footer */
-.ft{background:#000;color:#fff;padding:80px 64px 32px;border-top:6px solid var(--yl)}
+.ft{background:#000;color:#fff;padding:80px 64px 96px;border-top:6px solid var(--yl)} /* 下余白はLINEフロートボタン分 */
 .ft-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:2px dashed rgba(255,255,255,.2)}
 .ft .br{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .ft .br .m{width:50px;height:50px;background:var(--yl);color:#000;display:grid;place-items:center;font-size:28px;border-radius:50%;border:3px solid #fff}
@@ -271,7 +271,7 @@ section[id]{scroll-margin-top:120px}
   .what-grid,.rd-grid{grid-template-columns:1fr 1fr}
   .jn-grid{grid-template-columns:1fr;gap:32px}
   .jn-img{order:-1}
-  .ft{padding:64px 24px 28px}
+  .ft{padding:64px 24px 88px}
 }
 @media(max-width:600px){
   .topbar{font-size:10px}
@@ -365,7 +365,7 @@ section[id]{scroll-margin-top:120px}
 /* サンクスページ */
 .thanks{min-height:100vh;background:var(--yl);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;gap:8px}
 .thanks .tyre-big{width:clamp(80px,18vw,120px);height:clamp(80px,18vw,120px);background-color:#000;-webkit-mask:url('assets/tyre.svg') center/contain no-repeat;mask:url('assets/tyre.svg') center/contain no-repeat;margin-bottom:14px}
-.thanks h1{font-family:"Anton";font-size:clamp(2.6rem,11vw,84px);line-height:.92;color:#000}
+.thanks h1{font-family:"Anton";font-size:clamp(2.6rem,11vw,84px);line-height:.92;color:#000;margin-top:26px}
 .thanks h1 em{font-style:italic;color:#fff;text-shadow:4px 4px 0 #000}
 .thanks p{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:16px;color:#0d0d0d;max-width:520px;line-height:1.9;margin-top:10px}
 .thanks .home{margin-top:26px;background:#000;color:var(--yl);border:3px solid #000;box-shadow:5px 5px 0 #fff}
