@@ -14,7 +14,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="form-pending">
+  <!-- ★フォーム公開手順： ①下の form の action を KU様の受信アドレスに差し替え ②この body の class="form-pending" を削除 -->
 
 <!-- LOADER -->
 <div class="loader" id="loader">
@@ -228,6 +229,7 @@
   <p class="lead2" style="margin-left:auto;margin-right:auto">運送・倉庫の依頼も、整備・タイヤの相談も、売買・用品の見積りも、採用も。<br>トラックのことなら、まず一本鳴らしてくれ。</p>
   <div class="hit-acts">
     <button class="btn btn-bk" onclick="location.href='tel:0489522288'">電話で問い合わせ <span class="ar">→</span></button>
+    <button class="btn btn-yl to-form" onclick="document.getElementById('contact-form').scrollIntoView({block:'center'})">フォームで送る <span class="ar">→</span></button>
     <button class="btn btn-yl" onclick="location.href='#recruit'">採用エントリー <span class="ar">→</span></button>
   </div>
   <div class="hit-phs">
@@ -235,10 +237,13 @@
     <a class="hit-ph" href="tel:0489522184">048 — 952 — 2184<small>整備のお問い合わせ</small></a>
   </div>
 
-  <!-- ▼ お問い合わせフォーム（FormSubmit）。送信先メール確定後に class の "pending" を外し、action のアドレスを差し替える ▼ -->
-  <form class="cform pending" action="https://formsubmit.co/REPLACE_WITH_KU_EMAIL" method="POST">
+  <!-- ▼ お問い合わせフォーム（FormSubmit）
+       公開すると body.form-pending を外した時点でフォームと導線ボタンが表示される。
+       公開後の初回送信時、FormSubmit から受信アドレス宛に有効化リンクが1度だけ届くので
+       KU様側で承認してもらう（以降は自動でメール受信）。 ▼ -->
+  <form id="contact-form" class="cform" action="https://formsubmit.co/REPLACE_WITH_KU_EMAIL" method="POST">
     <div class="fhead">お問い合わせフォーム</div>
-    <div class="fsub">CONTACT FORM — 運送・倉庫 / 整備・洗浄 / タイヤ・用品販売 / 採用</div>
+    <div class="fsub">CONTACT FORM — 運送・倉庫 / 整備 / タイヤ・用品販売 / トラック売買 / 採用</div>
 
     <!-- FormSubmit 設定 -->
     <input type="hidden" name="_subject" value="【KU公式サイト】お問い合わせ">
@@ -250,22 +255,22 @@
     <div class="row two">
       <div class="row">
         <label for="f-name">お名前 <span class="req">必須</span></label>
-        <input id="f-name" type="text" name="お名前" required placeholder="例）小島 信行">
+        <input id="f-name" type="text" name="お名前" required autocomplete="name" placeholder="例）小島 信行">
       </div>
       <div class="row">
         <label for="f-company">会社名・屋号</label>
-        <input id="f-company" type="text" name="会社名" placeholder="例）株式会社○○運輸">
+        <input id="f-company" type="text" name="会社名" autocomplete="organization" placeholder="例）株式会社○○運輸">
       </div>
     </div>
 
     <div class="row two">
       <div class="row">
         <label for="f-tel">電話番号</label>
-        <input id="f-tel" type="tel" name="電話番号" placeholder="例）090-1234-5678" inputmode="tel">
+        <input id="f-tel" type="tel" name="電話番号" autocomplete="tel" placeholder="例）090-1234-5678" inputmode="tel">
       </div>
       <div class="row">
         <label for="f-email">メールアドレス <span class="req">必須</span></label>
-        <input id="f-email" type="email" name="メールアドレス" required placeholder="例）info@example.com">
+        <input id="f-email" type="email" name="メールアドレス" required autocomplete="email" placeholder="例）info@example.com">
       </div>
     </div>
 
@@ -273,8 +278,8 @@
       <label for="f-type">お問い合わせ種別</label>
       <select id="f-type" name="お問い合わせ種別">
         <option value="運送・倉庫">運送・倉庫について</option>
-        <option value="整備・洗浄">整備・洗浄（インジェクター/マフラー洗浄・出張交換）について</option>
-        <option value="タイヤ・用品販売">タイヤ・用品販売（輸入タイヤ / AdBlue / エンジンオイル / トラック売買）について</option>
+        <option value="整備">整備（点検・車検 / 一般整備 / 予防整備 / タイヤ取付・出張交換）について</option>
+        <option value="用品販売・トラック売買">用品販売・トラック売買（輸入タイヤ / AdBlue® / エンジンオイル / 買取・販売）について</option>
         <option value="採用">採用について</option>
         <option value="その他">その他</option>
       </select>
@@ -286,7 +291,7 @@
     </div>
 
     <button type="submit" class="cbtn">この内容で送信する <span class="ar">→</span></button>
-    <p class="note">送信いただいた内容は、当社からの折り返しのみに利用します。<br>お急ぎの場合は TEL 運送 048-952-2288 / 整備 048-952-2184（平日）へどうぞ。</p>
+    <p class="note">送信いただいた内容は、当社からの折り返しのみに利用します。フォーム送信には外部サービス（FormSubmit）を利用します。<br>お急ぎの場合は TEL 運送 <a href="tel:0489522288" style="color:var(--yl)">048-952-2288</a> / 整備 <a href="tel:0489522184" style="color:var(--yl)">048-952-2184</a>（平日）へどうぞ。</p>
   </form>
 </section>
 
