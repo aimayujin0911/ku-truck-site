@@ -14,8 +14,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body class="form-pending">
-  <!-- ★フォーム公開手順： ①下の form の action を KU様の受信アドレスに差し替え ②この body の class="form-pending" を削除 -->
+<body>
+  <!-- ★お問い合わせフォームは公開中。宛先は暫定で LIGO(yuujin@li-go.jp)。
+       KU様の受信アドレスが確定したら、下の form の action の宛先だけ差し替える。 -->
 
 <!-- LOADER -->
 <div class="loader" id="loader">
@@ -174,8 +175,8 @@
         <div><dt>FAX</dt><dd>048-953-1788</dd></div>
         <div><dt>事業内容</dt><dd>トラック輸送（一般貨物・イベント/什器・冷凍冷蔵）・倉庫・流通加工 / 点検・車検・一般整備・予防整備 / タイヤ販売・取付・出張交換 / AdBlue®・エンジンオイル販売 / トラック売買</dd></div>
         <div><dt>許認可</dt><dd>一般貨物自動車運送 関東運輸局認可 第1593号の2 / 自動車特定整備事業 第4-7114号 / 古物商 第431310064949号</dd></div>
-        <!-- HD社名はWeb登記情報でも確定できず（2026-07-16調査）。7/17訪問時に小島様へ正式名称を確認して差し替え -->
-        <div><dt>グループ会社</dt><dd><span class="co-group"><span>信光ホールディングス株式会社<small style="font-weight:500;color:#888">（正式名称確認中）</small></span><span>株式会社信光物流</span></span></dd></div>
+        <!-- グループ会社のHD社名は 2026-08-20 に正式名称を受領（株式会社SHINKO-HOLDINGS） -->
+        <div><dt>グループ会社</dt><dd><span class="co-group"><span>株式会社SHINKO-HOLDINGS</span><span>株式会社信光物流</span></span></dd></div>
       </dl>
       <div class="co-time">
         <span>1981 創業</span><span>1994 三郷で営業</span><span>2001 許認可（第1593号の2）</span><span>2022 タイヤ・運搬事業へ</span>
@@ -238,10 +239,10 @@
   </div>
 
   <!-- ▼ お問い合わせフォーム（FormSubmit）
-       公開すると body.form-pending を外した時点でフォームと導線ボタンが表示される。
-       公開後の初回送信時、FormSubmit から受信アドレス宛に有効化リンクが1度だけ届くので
-       KU様側で承認してもらう（以降は自動でメール受信）。 ▼ -->
-  <form id="contact-form" class="cform" action="https://formsubmit.co/REPLACE_WITH_KU_EMAIL" method="POST">
+       宛先＝暫定 yuujin@li-go.jp（KU様アドレス確定後に差し替え）。
+       初回送信時に FormSubmit から宛先へ有効化リンクが1度だけ届く。承認すると以降は自動受信。 ▼ -->
+  <form id="contact-form" class="cform" action="https://formsubmit.co/yuujin@li-go.jp" method="POST"
+        onsubmit="this.querySelector('[name=_replyto]').value=this.querySelector('#f-email').value">
     <div class="fhead">お問い合わせフォーム</div>
     <div class="fsub">CONTACT FORM — 運送・倉庫 / 整備 / タイヤ・用品販売 / トラック売買 / 採用</div>
 
@@ -251,6 +252,7 @@
     <input type="hidden" name="_captcha" value="true">
     <input type="hidden" name="_next" value="https://aimayujin0911.github.io/ku-truck-site/thanks.html">
     <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="_replyto" value="">
 
     <div class="row two">
       <div class="row">
