@@ -15,8 +15,8 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- ★お問い合わせフォームは公開中。宛先は暫定で LIGO(yuujin@li-go.jp)。
-       KU様の受信アドレスが確定したら、下の form の action の宛先だけ差し替える。 -->
+  <!-- ★お問い合わせフォームは公開中。宛先＝contact-ku@shinko-ghd.jp（2026-08-20 KU様より受領）
+       ※FormSubmit の初回送信時に宛先へ届く有効化リンクを、KU様側で1度承認する必要がある -->
 
 <!-- LOADER -->
 <div class="loader" id="loader">
@@ -239,9 +239,9 @@
   </div>
 
   <!-- ▼ お問い合わせフォーム（FormSubmit）
-       宛先＝暫定 yuujin@li-go.jp（KU様アドレス確定後に差し替え）。
+       宛先＝contact-ku@shinko-ghd.jp
        初回送信時に FormSubmit から宛先へ有効化リンクが1度だけ届く。承認すると以降は自動受信。 ▼ -->
-  <form id="contact-form" class="cform" action="https://formsubmit.co/yuujin@li-go.jp" method="POST"
+  <form id="contact-form" class="cform" action="https://formsubmit.co/contact-ku@shinko-ghd.jp" method="POST"
         onsubmit="this.querySelector('[name=_replyto]').value=this.querySelector('#f-email').value">
     <div class="fhead">お問い合わせフォーム</div>
     <div class="fsub">CONTACT FORM — 運送・倉庫 / 整備 / タイヤ・用品販売 / トラック売買 / 採用</div>

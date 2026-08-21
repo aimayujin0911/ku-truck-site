@@ -20,7 +20,9 @@ a{color:inherit;text-decoration:none;cursor:pointer}
 .dot{font-family:"DotGothic16",monospace}
 
 /* Loader */
-.loader{position:fixed;inset:0;background:var(--yl);z-index:999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;transition:opacity .5s .4s,visibility 0s 1s}
+.loader{position:fixed;inset:0;background:var(--yl);z-index:999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;transition:opacity .5s .4s,visibility 0s 1s;animation:loaderOut .45s 1.6s forwards}
+/* JSが失敗してもCSSだけで必ず消える保険（JSが動けば .hide で先に消える） */
+@keyframes loaderOut{to{opacity:0;visibility:hidden}}
 .loader.hide{opacity:0;visibility:hidden}
 .lo-tyre{width:clamp(96px,26vw,140px);height:auto;animation:spin 1.6s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -51,7 +53,7 @@ a{color:inherit;text-decoration:none;cursor:pointer}
 /* Mobile nav (hamburger + drawer) — production addition */
 .burger{display:none;margin-left:auto;width:52px;height:52px;background:#000;color:var(--yl);border:3px solid #000;box-shadow:4px 4px 0 var(--yl);font-size:22px;line-height:1;cursor:pointer;place-items:center}
 .burger:active{transform:translate(2px,2px)}
-.nav-scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .3s;z-index:54}
+.nav-scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .3s;z-index:49} /* .nav(50)より下。54だとドロワー(.nav内)より前面に来てタップを奪う */
 .nav-scrim.open{opacity:1;visibility:visible}
 
 /* SERVICES dropdown (desktop hover) */
