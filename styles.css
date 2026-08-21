@@ -6,7 +6,9 @@
    and a full responsive + mobile-nav layer added for production.
    ═══════════════════════════════════════════════════════════ */
 
-:root{--bk:#0d0d0d;--yl:#40b8d0;--yl2:#6fd0e2;--mg:#0d0d0d;--cy:#40b8d0;--ln:#222;--mt:#888;--wh:#ffffff;--off:#f4f7f8;}
+:root{--bk:#0d0d0d;--yl:#40b8d0;--yl2:#6fd0e2;--mg:#0d0d0d;--cy:#40b8d0;--ln:#222;--mt:#888;--wh:#ffffff;--off:#f4f7f8;
+  /* 日本語ディスプレイ書体。Anton/Archivo Black は欧文専用なので、日本語が入る見出し・ラベルはこれを使う */
+  --jpd:"Noto Sans JP","Zen Kaku Gothic New",sans-serif;}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 html,body{background:var(--off);color:var(--bk);font-family:"Zen Kaku Gothic New","Space Grotesk",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -78,7 +80,7 @@ a{color:inherit;text-decoration:none;cursor:pointer}
 .title .ln1{display:block;font-size:clamp(2.75rem,13.5vw,200px);animation:su 1.1s cubic-bezier(.2,.7,.2,1) .4s both}
 .title .ln2{display:block;font-size:clamp(2.75rem,13.5vw,200px);animation:su 1.1s cubic-bezier(.2,.7,.2,1) .55s both}
 .title .ln2 em{font-style:italic;color:var(--yl);text-shadow:5px 5px 0 #000}
-.title .ln3{display:block;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:clamp(1.35rem,4.6vw,48px);letter-spacing:.04em;margin-top:18px;color:#000;word-break:keep-all;overflow-wrap:break-word;animation:su 1.1s cubic-bezier(.2,.7,.2,1) .7s both}
+.title .ln3{display:block;font-family:var(--jpd);font-weight:900;font-size:clamp(1.35rem,4.6vw,48px);letter-spacing:.04em;margin-top:18px;color:#000;word-break:keep-all;overflow-wrap:break-word;animation:su 1.1s cubic-bezier(.2,.7,.2,1) .7s both}
 .title .ln1 .amp{display:inline-block;font-size:.42em;vertical-align:.34em;margin-left:.04em;letter-spacing:0}
 .hero .lead{font-size:17px;line-height:1.9;color:#000;font-weight:500;max-width:560px;margin-top:32px;animation:fu 1s .9s both}
 .acts{display:flex;gap:22px;margin-top:40px;animation:fu 1s 1.1s both;flex-wrap:wrap}
@@ -117,7 +119,7 @@ h2.bg .yl{background:var(--yl);padding:0 14px;display:inline-block;transform:rot
 .who-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
 .who-stats .st{background:#000;color:var(--yl);padding:24px 18px;border:3px solid #000;box-shadow:5px 5px 0 var(--mg);text-align:center}
 .who-stats .st .v{font-family:"Anton";font-size:54px;line-height:1;color:var(--yl)}
-.who-stats .st .l{font-family:"Archivo Black";font-size:10px;letter-spacing:.18em;color:#fff;margin-top:6px}
+.who-stats .st .l{font-family:"Archivo Black",var(--jpd);font-size:10px;letter-spacing:.18em;color:#fff;margin-top:6px} /* 欧文はArchivo Black、日本語(倉庫拠点)はNoto Sans JPにフォールバック */
 .who-card{background:#fff;border:4px solid #000;box-shadow:10px 10px 0 var(--mg);padding:24px;transform:rotate(2deg)}
 .who-card img{width:100%;aspect-ratio:4/5;object-fit:cover;border:3px solid #000;display:block}
 .who-card .cap{font-family:"Archivo Black";font-size:14px;letter-spacing:.1em;margin-top:14px;color:#000;display:flex;justify-content:space-between}
@@ -163,8 +165,8 @@ h2.bg .yl{background:var(--yl);padding:0 14px;display:inline-block;transform:rot
 .rd-it.r:hover{transform:rotate(2deg) translate(-3px,-3px)}
 .rd-it .img{aspect-ratio:5/4;background-size:cover;background-position:center;border:3px solid #000}
 .rd-it .meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-.rd-it h5{font-family:"Anton";font-size:22px;line-height:1;color:#000}
-.rd-it .tg{background:var(--yl);color:#000;font-family:"Archivo Black";font-size:10px;letter-spacing:.1em;padding:3px 8px;border:2px solid #000}
+.rd-it h5{font-family:var(--jpd);font-weight:900;font-size:21px;letter-spacing:.01em;line-height:1;color:#000}
+.rd-it .tg{background:var(--yl);color:#000;font-family:var(--jpd);font-weight:900;font-size:11px;letter-spacing:.06em;padding:3px 8px;border:2px solid #000}
 
 /* JOIN (recruit) */
 .jn{background:var(--mg);padding:140px 64px;color:#fff;position:relative;overflow:hidden}
@@ -369,7 +371,7 @@ body.form-pending .cform,body.form-pending .to-form{display:none} /* 送信先�
 /* サンクスページ */
 .thanks{min-height:100vh;background:var(--yl);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;gap:8px}
 .thanks .tyre-big{width:clamp(80px,18vw,120px);height:clamp(80px,18vw,120px);background-color:#000;-webkit-mask:url('assets/tyre.svg') center/contain no-repeat;mask:url('assets/tyre.svg') center/contain no-repeat;margin-bottom:14px}
-.thanks h1{font-family:"Anton";font-size:clamp(2.6rem,11vw,84px);line-height:.92;color:#000;margin-top:26px}
+.thanks h1{font-family:var(--jpd);font-weight:900;font-size:clamp(2.6rem,11vw,84px);line-height:.92;color:#000;margin-top:26px}
 .thanks h1 em{font-style:italic;color:#fff;text-shadow:4px 4px 0 #000}
 .thanks p{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:16px;color:#0d0d0d;max-width:520px;line-height:1.9;margin-top:10px}
 .thanks .home{margin-top:26px;background:#000;color:var(--yl);border:3px solid #000;box-shadow:5px 5px 0 #fff}

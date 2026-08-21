@@ -21,7 +21,7 @@
 /* 斜体＋影が次の語に食い込むため、語が続く見出しだけ間隔を確保（BOSS'S WORD.） */
 .dh h1.gap-em em{margin-right:.1em}
 
-.dh .jp{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:clamp(1.6rem,5vw,38px);margin:14px 0 22px;letter-spacing:.02em}
+.dh .jp{font-family:var(--jpd);font-weight:900;font-size:clamp(1.6rem,5vw,38px);margin:14px 0 22px;letter-spacing:.02em}
 .dh .lead{font-size:17px;line-height:1.95;max-width:640px;color:rgba(255,255,255,.85);font-weight:500}
 .dh-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
 .dh-tabs a{font-family:"Archivo Black";font-size:12px;letter-spacing:.06em;padding:11px 18px;border:3px solid var(--yl);color:#fff;transition:background .15s,color .15s}
@@ -35,7 +35,7 @@
 .dsec-in{max-width:1200px;margin:0 auto}
 .dsec .ey,.dfeat .ey{display:inline-block;font-family:"Archivo Black";font-size:12px;letter-spacing:.18em;background:#000;color:var(--yl);padding:7px 14px;margin-bottom:22px}
 .dsec.dark .ey{background:var(--yl);color:#000}
-.dsec h2{font-family:"Anton";font-size:clamp(2.2rem,7vw,72px);line-height:.95;color:#000;margin-bottom:14px;overflow-wrap:break-word}
+.dsec h2{font-family:var(--jpd);font-weight:900;font-size:clamp(2.2rem,7vw,72px);line-height:.95;color:#000;margin-bottom:14px;overflow-wrap:break-word}
 /* 見出しの改行位置を句読点にそろえる。ただし極小幅では強調(em)が inline-block のためはみ出すので600px以上のみ */
 @media(min-width:601px){.dsec h2{word-break:keep-all}}
 /* 文字数の多い見出しはPCで1行に収まるサイズに */
@@ -58,7 +58,7 @@
 /* 写真なしカードは番号を見出しの上に通常配置（絶対配置だとカード外にはみ出て切れる） */
 .dcard>.bd:first-child{padding-top:26px}
 .dcard>.bd:first-child .rn{width:56px;height:56px;font-size:40px;margin-bottom:14px}
-.dcard h3{font-family:"Anton";font-size:clamp(22px,2.4vw,30px);line-height:1.05;color:#000;margin-bottom:6px}
+.dcard h3{font-family:var(--jpd);font-weight:900;font-size:clamp(22px,2.4vw,30px);line-height:1.05;color:#000;margin-bottom:6px}
 .dcard .en{font-family:"Archivo Black";font-size:10px;letter-spacing:.2em;color:var(--cy);margin-bottom:12px}
 .dcard p{font-size:14px;line-height:1.85;color:#333;font-weight:500}
 
@@ -67,10 +67,10 @@
 .dfeat::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(0,0,0,.045) 0 22px,transparent 22px 44px);pointer-events:none}
 .dfeat-in{max-width:1200px;margin:0 auto;position:relative}
 .dfeat .ey{background:#000;color:var(--yl)} /* 色のみ上書き（他は上の共通ルール） */
-.dfeat h2{font-family:"Anton";font-size:clamp(2rem,7.5vw,64px);color:#000;line-height:.95;margin-bottom:48px;word-break:keep-all;overflow-wrap:break-word}
+.dfeat h2{font-family:var(--jpd);font-weight:900;font-size:clamp(2rem,7.5vw,64px);color:#000;line-height:.95;margin-bottom:48px;word-break:keep-all;overflow-wrap:break-word}
 .dfeat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .fcard{background:#fff;border:3px solid #000;box-shadow:6px 6px 0 #000;padding:28px 24px}
-.fcard .fn{font-family:"Anton";font-size:40px;color:var(--cy);line-height:1;margin-bottom:10px}
+.fcard .fn{font-family:var(--jpd);font-weight:900;font-size:40px;color:var(--cy);line-height:1;margin-bottom:10px}
 .fcard h4{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:19px;color:#000;margin-bottom:8px}
 .fcard p{font-size:13.5px;line-height:1.8;color:#333;font-weight:500}
 
@@ -92,7 +92,7 @@
 /* CTA */
 .dcta{background:var(--yl);padding:110px 64px;text-align:center;position:relative;border-top:6px solid #000}
 .dcta::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,#000 0 30px,#fff 30px 60px)}
-.dcta h2{font-family:"Anton";font-size:clamp(2.5rem,10vw,96px);color:#000;line-height:.92;word-break:keep-all;overflow-wrap:break-word}
+.dcta h2{font-family:var(--jpd);font-weight:900;font-size:clamp(2.5rem,10vw,96px);color:#000;line-height:.92;word-break:keep-all;overflow-wrap:break-word}
 /* 文字数の多いCTA見出しをPCで折り返さないサイズに（スマホは自然折返し） */
 .dcta h2.fit{font-size:clamp(1.5rem,6.4vw,82px)}
 
@@ -108,7 +108,7 @@
 .dother-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .olink{display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border:3px solid var(--yl);padding:28px 32px;transition:background .18s,transform .18s}
 .olink:hover{background:var(--yl);transform:translateX(4px)}
-.olink .ot{font-family:"Anton";font-size:clamp(1.6rem,5vw,34px);color:#fff}
+.olink .ot{font-family:var(--jpd);font-weight:900;font-size:clamp(1.6rem,5vw,34px);color:#fff}
 .olink:hover .ot{color:#000}
 .olink .oe{font-family:"Archivo Black";font-size:11px;letter-spacing:.16em;color:var(--cy);display:block;margin-bottom:4px}
 .olink:hover .oe{color:#000}
@@ -141,7 +141,7 @@
 .wh-card .img{aspect-ratio:4/3;background-size:cover;background-position:center;border-bottom:3px solid #000}
 .wh-card figcaption{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px}
 .wh-card figcaption b{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:18px;color:#000}
-.wh-card .tsubo{font-family:"Anton";font-size:22px;color:var(--cy);line-height:1}
+.wh-card .tsubo{font-family:var(--jpd);font-weight:900;font-size:22px;color:var(--cy);line-height:1}
 .wh-card .ad{font-family:"Zen Kaku Gothic New";font-weight:500;font-size:12.5px;color:#444;line-height:1.6;margin-top:2px}
 @media(max-width:860px){.wh-photos3{grid-template-columns:1fr}}
 
