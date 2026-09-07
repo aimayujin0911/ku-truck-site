@@ -1,79 +1,70 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="AdBlue® 正規品販売 — 給油ノズルとIBCタンク">
   <defs>
     <pattern id="stripes" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <rect width="28" height="56" fill="#ffffff" fill-opacity="0.035"/>
+      <rect width="28" height="56" fill="#ffffff" fill-opacity="0.04"/>
     </pattern>
-    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#40b8d0" stop-opacity="0.38"/>
-      <stop offset="0.6" stop-color="#40b8d0" stop-opacity="0.12"/>
-      <stop offset="1" stop-color="#40b8d0" stop-opacity="0"/>
-    </radialGradient>
   </defs>
 
-  <!-- 背景 -->
-  <rect width="1600" height="1000" fill="#0d0d0d"/>
+  <!-- 背景（濃紺黒＋斜めストライプ） -->
+  <rect width="1600" height="1000" fill="#0d141a"/>
   <rect width="1600" height="1000" fill="url(#stripes)"/>
 
-  <!-- 中央の光輪 -->
-  <circle cx="840" cy="540" r="430" fill="url(#glow)"/>
-  <circle cx="840" cy="540" r="335" fill="none" stroke="#40b8d0" stroke-opacity="0.45" stroke-width="8"/>
-  <circle cx="840" cy="540" r="405" fill="none" stroke="#40b8d0" stroke-opacity="0.16" stroke-width="4"/>
+  <!-- 中央の円盤（濃いティール）＋リング -->
+  <circle cx="1000" cy="520" r="470" fill="none" stroke="#40b8d0" stroke-opacity="0.22" stroke-width="4"/>
+  <circle cx="1000" cy="520" r="400" fill="#113742"/>
+  <circle cx="1000" cy="520" r="416" fill="none" stroke="#40b8d0" stroke-opacity="0.85" stroke-width="6"/>
 
   <!-- IBCタンク（右） -->
   <g>
     <!-- パレット -->
-    <rect x="890" y="800" width="520" height="46" rx="6" fill="#1a1a1a" stroke="#000" stroke-width="5"/>
-    <rect x="912" y="846" width="60" height="34" fill="#1a1a1a" stroke="#000" stroke-width="5"/>
-    <rect x="1120" y="846" width="60" height="34" fill="#1a1a1a" stroke="#000" stroke-width="5"/>
-    <rect x="1328" y="846" width="60" height="34" fill="#1a1a1a" stroke="#000" stroke-width="5"/>
-    <!-- 注入口キャップ -->
-    <rect x="1090" y="262" width="120" height="60" rx="10" fill="#f4f7f8" stroke="#000" stroke-width="5"/>
-    <rect x="1122" y="236" width="56" height="30" rx="6" fill="#40b8d0" stroke="#000" stroke-width="5"/>
-    <!-- 本体 -->
-    <rect x="910" y="316" width="480" height="484" rx="14" fill="#f4f7f8" stroke="#000" stroke-width="6"/>
-    <!-- ケージ格子 -->
-    <g stroke="#000" stroke-opacity="0.22" stroke-width="4">
-      <line x1="1006" y1="316" x2="1006" y2="800"/>
-      <line x1="1102" y1="316" x2="1102" y2="800"/>
-      <line x1="1198" y1="316" x2="1198" y2="800"/>
-      <line x1="1294" y1="316" x2="1294" y2="800"/>
-      <line x1="910" y1="413" x2="1390" y2="413"/>
-      <line x1="910" y1="510" x2="1390" y2="510"/>
-      <line x1="910" y1="606" x2="1390" y2="606"/>
-      <line x1="910" y1="703" x2="1390" y2="703"/>
+    <rect x="920" y="800" width="460" height="46" rx="6" fill="#1a2226" stroke="#000" stroke-width="5"/>
+    <rect x="944" y="846" width="58" height="32" fill="#1a2226" stroke="#000" stroke-width="5"/>
+    <rect x="1121" y="846" width="58" height="32" fill="#1a2226" stroke="#000" stroke-width="5"/>
+    <rect x="1298" y="846" width="58" height="32" fill="#1a2226" stroke="#000" stroke-width="5"/>
+    <!-- 上部リムと注入口キャップ -->
+    <rect x="1110" y="236" width="80" height="40" rx="8" fill="#40b8d0" stroke="#000" stroke-width="5"/>
+    <rect x="960" y="270" width="380" height="34" rx="6" fill="#dfe7ea" stroke="#000" stroke-width="5"/>
+    <!-- 本体（ケージ） -->
+    <rect x="940" y="290" width="420" height="510" rx="16" fill="#eef3f5" stroke="#000" stroke-width="6"/>
+    <g stroke="#000" stroke-opacity="0.28" stroke-width="4">
+      <line x1="1045" y1="290" x2="1045" y2="800"/>
+      <line x1="1150" y1="290" x2="1150" y2="800"/>
+      <line x1="1255" y1="290" x2="1255" y2="800"/>
+      <line x1="940" y1="392" x2="1360" y2="392"/>
+      <line x1="940" y1="494" x2="1360" y2="494"/>
+      <line x1="940" y1="596" x2="1360" y2="596"/>
+      <line x1="940" y1="698" x2="1360" y2="698"/>
     </g>
     <!-- ラベル -->
-    <rect x="975" y="470" width="350" height="122" rx="8" fill="#0d0d0d" stroke="#000" stroke-width="5"/>
-    <text x="1000" y="523" font-family="Anton,'Arial Black',Impact,sans-serif" font-weight="900" font-size="48" fill="#ffffff">AdBlue<tspan font-size="20" dy="-22">®</tspan></text>
-    <text x="1000" y="568" font-family="'Arial Black',Arial,Helvetica,sans-serif" font-weight="700" font-size="24" letter-spacing="2" fill="#40b8d0">AUS 32 / IBC 1000L</text>
-    <!-- 排出バルブ（右下） -->
-    <rect x="1404" y="700" width="22" height="30" rx="4" fill="#000"/>
-    <rect x="1380" y="726" width="70" height="46" rx="8" fill="#40b8d0" stroke="#000" stroke-width="5"/>
-    <rect x="1444" y="738" width="34" height="22" rx="4" fill="#0d0d0d" stroke="#000" stroke-width="4"/>
+    <rect x="990" y="485" width="320" height="155" rx="10" fill="#0d141a" stroke="#000" stroke-width="5"/>
+    <text x="1015" y="548" font-family="Anton,'Arial Black',Impact,sans-serif" font-weight="900" font-size="54" fill="#ffffff">AdBlue<tspan font-size="22" dy="-24">®</tspan></text>
+    <text x="1015" y="606" font-family="'Arial Black',Arial,Helvetica,sans-serif" font-weight="700" font-size="26" letter-spacing="2" fill="#dff4f8">AUS 32 / IBC 1000L</text>
+    <!-- 排出バルブ（左下・左向き） -->
+    <rect x="898" y="692" width="22" height="30" rx="4" fill="#000"/>
+    <rect x="880" y="718" width="66" height="44" rx="8" fill="#40b8d0" stroke="#000" stroke-width="5"/>
+    <rect x="852" y="729" width="34" height="22" rx="4" fill="#0d141a" stroke="#000" stroke-width="4"/>
   </g>
 
-  <!-- 給油ノズル（左） -->
+  <!-- 給油ノズル（左・右向き） -->
   <g>
-    <!-- ホース -->
-    <path d="M345 690 C345 830 300 900 170 930" fill="none" stroke="#000" stroke-width="40" stroke-linecap="round"/>
-    <path d="M345 690 C345 830 300 900 170 930" fill="none" stroke="#40b8d0" stroke-width="28" stroke-linecap="round"/>
+    <!-- ホース（グリップ下から左下へ） -->
+    <path d="M370 800 C370 900 300 950 120 985" fill="none" stroke="#000" stroke-width="42" stroke-linecap="round"/>
+    <path d="M370 800 C370 900 300 950 120 985" fill="none" stroke="#40b8d0" stroke-width="30" stroke-linecap="round"/>
     <!-- グリップ -->
-    <rect x="296" y="480" width="100" height="220" rx="26" fill="#40b8d0" stroke="#000" stroke-width="6"/>
+    <rect x="300" y="520" width="140" height="290" rx="30" fill="#40b8d0" stroke="#000" stroke-width="6"/>
     <!-- トリガー -->
-    <path d="M410 522 q38 62 92 30" fill="none" stroke="#000" stroke-width="26" stroke-linecap="round"/>
-    <path d="M410 522 q38 62 92 30" fill="none" stroke="#40b8d0" stroke-width="14" stroke-linecap="round"/>
+    <path d="M470 545 q40 66 100 34" fill="none" stroke="#000" stroke-width="28" stroke-linecap="round"/>
+    <path d="M470 545 q40 66 100 34" fill="none" stroke="#40b8d0" stroke-width="15" stroke-linecap="round"/>
     <!-- 本体 -->
-    <rect x="296" y="408" width="300" height="112" rx="26" fill="#40b8d0" stroke="#000" stroke-width="6"/>
-    <rect x="322" y="430" width="120" height="16" rx="8" fill="#ffffff" fill-opacity="0.45"/>
-    <!-- 吐出管 -->
-    <path d="M590 464 L700 464 Q748 464 748 512 L748 588" fill="none" stroke="#000" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M590 464 L700 464 Q748 464 748 512 L748 588" fill="none" stroke="#40b8d0" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="720" y="580" width="56" height="36" rx="8" fill="#0d0d0d" stroke="#000" stroke-width="5"/>
-    <!-- 液滴 -->
-    <path d="M748 646 c-15 24 -15 44 0 58 c15 -14 15 -34 0 -58z" fill="#6fd0e2" stroke="#000" stroke-width="4"/>
+    <rect x="260" y="380" width="500" height="160" rx="30" fill="#40b8d0" stroke="#000" stroke-width="6"/>
+    <rect x="292" y="406" width="170" height="18" rx="9" fill="#ffffff" fill-opacity="0.45"/>
+    <!-- 吐出管（真横・タンクへ） -->
+    <path d="M750 460 L905 460" fill="none" stroke="#000" stroke-width="66" stroke-linecap="round"/>
+    <path d="M750 460 L905 460" fill="none" stroke="#40b8d0" stroke-width="50" stroke-linecap="round"/>
+    <rect x="884" y="432" width="52" height="56" rx="8" fill="#0d141a" stroke="#000" stroke-width="5"/>
   </g>
 
   <!-- 左上タブ -->
-  <rect x="64" y="56" width="330" height="96" rx="8" fill="#1a1a1a" stroke="#000" stroke-width="5"/>
-  <text x="96" y="124" font-family="Anton,'Arial Black',Impact,sans-serif" font-weight="900" font-size="58" fill="#ffffff">AdBlue<tspan font-size="26" dy="-26">®</tspan></text>
+  <rect x="80" y="60" width="380" height="110" rx="10" fill="#1a2226" stroke="#000" stroke-width="5"/>
+  <text x="118" y="138" font-family="Anton,'Arial Black',Impact,sans-serif" font-weight="900" font-size="64" fill="#ffffff">AdBlue<tspan font-size="28" dy="-28">®</tspan></text>
 </svg>
