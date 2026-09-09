@@ -11,132 +11,148 @@
 <meta property="og:image" content="assets/adblue_service.svg">
 <link rel="icon" href="assets/tyre.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&family=DotGothic16&family=Noto+Sans+JP:wght@900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="svc.css">
+<link rel="stylesheet" href="lp.css">
 </head>
-<body>
+<body class="lp">
 
-<div class="loader" id="loader">
-  <img class="lo-tyre" src="assets/tyre.svg" alt="">
-  <div class="logo stacked"><span class="ku">KU</span><span class="stk"><span class="tread"></span><span class="lname">TRUCK ＆ TYRE SERVICE</span><span class="tread"></span></span></div>
-  <div class="lo-tx">SINCE 1981 — 埼玉・三郷</div>
-</div>
-
-<div class="topbar">
-  <div class="tb-track">
-    <span><i class="tyre-ic"></i> ADBLUE® — 正規品販売</span><span><i class="tyre-ic"></i> AUS 32 / ISO 22241</span><span><i class="tyre-ic"></i> 台数に合わせてまとめて供給</span><span><i class="tyre-ic"></i> 整備・タイヤとセットOK</span><span><i class="tyre-ic"></i> 埼玉・三郷 KU TRUCK ＆ TYRE SERVICE</span>
-    <span><i class="tyre-ic"></i> ADBLUE® — 正規品販売</span><span><i class="tyre-ic"></i> AUS 32 / ISO 22241</span><span><i class="tyre-ic"></i> 台数に合わせてまとめて供給</span><span><i class="tyre-ic"></i> 整備・タイヤとセットOK</span><span><i class="tyre-ic"></i> 埼玉・三郷 KU TRUCK ＆ TYRE SERVICE</span>
-  </div>
-</div>
-
-<nav class="nav" id="nav">
-  <a class="logo" href="index.html" aria-label="KU TRUCK ＆ TYRE SERVICE ホーム">
+<!-- LP専用ヘッダー -->
+<header class="lph">
+  <a class="logo inv" href="index.html" aria-label="KU TRUCK ＆ TYRE SERVICE ホーム">
     <span class="ku">KU</span>
     <span class="stk"><span class="tread"></span><span class="lname">TRUCK ＆ TYRE SERVICE</span><span class="tread"></span></span>
   </a>
-  <div class="menu" id="menu">
-    <div class="has-sub">
-      <a href="index.html#services"><em>01</em>SERVICES</a>
-      <div class="submenu">
-        <a href="transport.html">運送</a>
-        <a href="maintenance.html">整備</a>
-        <a href="parts.html">タイヤ・用品販売</a>
-        <a href="adblue.html">AdBlue®正規品</a>
-      </div>
-    </div><a href="index.html#fleet"><em>02</em>TRUCK</a><a href="index.html#company"><em>03</em>COMPANY</a><a href="message.html"><em>04</em>MESSAGE</a><a href="index.html#recruit"><em>05</em>RECRUIT</a><a class="m-only" href="index.html#contact"><em>06</em>CONTACT</a>
+  <div class="lph-r">
+    <a class="lph-tel" href="tel:0489522288"><small>TEL</small><span>048-952-2288</span></a>
+    <a class="btn btn-yl lph-cta" href="index.html#contact">見積を依頼 <span class="ar">→</span></a>
   </div>
-  <button class="cta" onclick="location.href='index.html#contact'">CONTACT <span class="ar">→</span></button>
-  <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="menu">☰</button>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="dh lp-hero">
-  <div class="dh-grain"></div>
-  <div class="dh-in">
-    <div>
-      <div class="dh-crumb"><a href="index.html">HOME</a><span class="sep">/</span><a href="parts.html">タイヤ・用品販売</a><span class="sep">/</span><span class="cur">AdBlue®正規品販売</span></div>
-      <div class="eytag"><i class="tyre-ic"></i> ADBLUE® / DEF</div>
-      <h1>AD<em>BLUE</em>.</h1>
-      <div class="jp">切らすな、AdBlue®。</div>
-      <p class="lead">ディーゼルトラックの排ガス浄化に欠かせない尿素水 AdBlue®（AUS 32）。正規品を、保有台数と使用量に合わせて、まとめて供給する。整備・タイヤ交換とセットで頼めるのは、トラックを丸ごと面倒みるKUだから。</p>
-      <div class="lp-acts">
-        <button class="btn btn-yl" onclick="location.href='index.html#contact'">見積を依頼する <span class="ar">→</span></button>
-        <button class="btn btn-bk" onclick="location.href='tel:0489522288'">電話で相談 048-952-2288</button>
-      </div>
+<!-- STREET HERO -->
+<section class="sh">
+  <div class="sh-photo" style="background-image:url('assets/fleet-8t.jpg')"></div>
+  <div class="sh-tone"></div>
+  <div class="sh-stripes"></div>
+  <div class="sh-in">
+    <div class="sh-kicker"><span>KU TRUCK ＆ TYRE SERVICE</span><span>MISATO, SAITAMA</span></div>
+    <h1 class="sh-title"><span class="ol">AD</span><span class="fl">BLUE</span><span class="dot">.</span></h1>
+    <p class="sh-sub">切らすな、<b>AdBlue®</b>。</p>
+    <p class="sh-lead">ディーゼルトラックの排ガス浄化に欠かせない尿素水 AdBlue®（AUS 32）。正規品を、保有台数と使用量に合わせて、まとめて供給する。整備・タイヤ交換とセットで頼めるのは、トラックを丸ごと面倒みるKUだから。</p>
+    <div class="sh-acts">
+      <a class="btn btn-tel" href="tel:0489522288">048-952-2288 に電話</a>
+      <a class="btn btn-bk" href="index.html#contact">見積を依頼する <span class="ar">→</span></a>
     </div>
-    <figure class="lp-art"><img src="assets/adblue_service.svg" alt="AdBlue®の給油ノズルとIBCタンク（1000L）のイラスト"></figure>
+  </div>
+  <span class="stkr s1">正規品 ONLY</span>
+  <span class="stkr s2">AUS 32 / ISO 22241</span>
+  <span class="stkr s3">IBC 1000L</span>
+  <span class="stkr s4">DON'T RUN DRY</span>
+  <div class="sh-marq"><div class="track">
+    <span>切らすな、AdBlue®。</span><span>DON'T RUN DRY</span><span>正規品 AUS 32 / ISO 22241</span><span>台数に合わせて、まとめて。</span><span>整備・タイヤとセットOK</span><span>埼玉・三郷 KU TRUCK ＆ TYRE SERVICE</span>
+    <span>切らすな、AdBlue®。</span><span>DON'T RUN DRY</span><span>正規品 AUS 32 / ISO 22241</span><span>台数に合わせて、まとめて。</span><span>整備・タイヤとセットOK</span><span>埼玉・三郷 KU TRUCK ＆ TYRE SERVICE</span>
+  </div></div>
+</section>
+
+<!-- 車両フォトストリップ -->
+<section class="strip" aria-label="KUの車両">
+  <div class="strip-in">
+    <figure><div class="ph" style="background-image:url('assets/fleet-8t.jpg')"></div><figcaption><small>8t</small>ドライウイング</figcaption></figure>
+    <figure><div class="ph" style="background-image:url('assets/fleet-4t.jpg')"></div><figcaption><small>4t</small>チルド・冷凍</figcaption></figure>
+    <figure><div class="ph" style="background-image:url('assets/svc-reefer.jpg')"></div><figcaption><small>REEFER</small>低温車</figcaption></figure>
+    <figure><div class="ph" style="background-image:url('assets/fleet-3t.jpg')"></div><figcaption><small>3t</small>平ゲート</figcaption></figure>
   </div>
 </section>
 
-<!-- AdBlueとは -->
-<section class="dsec light">
-  <div class="dsec-in">
-    <span class="ey">WHAT IS ADBLUE® — 基礎知識</span>
+<!-- WHAT -->
+<section class="ls paper">
+  <div class="ls-in">
+    <span class="tag">WHAT IS ADBLUE® — 基礎知識</span>
     <h2>AdBlue®って、<em>なに？</em></h2>
     <p class="sub">ディーゼル車の排ガスをきれいにするための高品位尿素水。燃料ではないが、切れると走れない。トラックを動かし続けるための、もうひとつの必需品。</p>
-    <div class="dgrid">
-      <div class="dcard"><div class="bd"><div class="rn">01</div><h3>排ガスを<br>きれいにする水</h3><div class="en">SCR / NOx</div><p>ディーゼル車の尿素SCRシステムで使う尿素水。排ガス中の窒素酸化物（NOx）を、無害な窒素と水に分解する。</p></div></div>
-      <div class="dcard"><div class="bd"><div class="rn">02</div><h3>規格は<br>AUS 32</h3><div class="en">ISO 22241</div><p>尿素32.5%の高純度水溶液。ISO 22241に適合した正規品でないと、触媒や噴射ノズルを傷める原因になる。</p></div></div>
-      <div class="dcard"><div class="bd"><div class="rn">03</div><h3>切れたら、<br>走れない</h3><div class="en">DON'T RUN DRY</div><p>残量が減ると警告、空になるとエンジンを再始動できない車両が多い。燃料と同じく「切らさない管理」が要る。</p></div></div>
+    <div class="wgrid">
+      <div class="wcard"><div class="n">01</div><h3>排ガスを<br>きれいにする水</h3><div class="en">SCR / NOx</div><p>ディーゼル車の尿素SCRシステムで使う尿素水。排ガス中の窒素酸化物（NOx）を、無害な窒素と水に分解する。</p></div>
+      <div class="wcard"><div class="n">02</div><h3>規格は<br>AUS 32</h3><div class="en">ISO 22241</div><p>尿素32.5%の高純度水溶液。ISO 22241に適合した正規品でないと、触媒や噴射ノズルを傷める原因になる。</p></div>
+      <div class="wcard"><div class="n">03</div><h3>切れたら、<br>走れない</h3><div class="en">DON'T RUN DRY</div><p>残量が減ると警告、空になるとエンジンを再始動できない車両が多い。燃料と同じく「切らさない管理」が要る。</p></div>
     </div>
   </div>
 </section>
 
-<!-- KUで買う理由 -->
-<section class="dfeat">
-  <div class="dfeat-in">
-    <span class="ey">WHY KU — 選ばれる理由</span>
-    <h2>正規品を、台数に合わせて、まとめて。</h2>
-    <div class="dfeat-grid">
-      <div class="fcard"><div class="fn">正規品</div><h4>規格適合のAdBlue®</h4><p>ISO 22241適合の正規品のみを供給。SCRシステムを傷めない、安心して入れられる一本。</p></div>
-      <div class="fcard"><div class="fn">価格</div><h4>メリットある価格</h4><p>自社トラック24台で日々使う立場だからこそ、メリットのある価格でご提供。</p></div>
-      <div class="fcard"><div class="fn">まとめて</div><h4>台数・使用量に合わせて</h4><p>保有台数と月間使用量に合わせて、必要な量をまとめてご提供。切らさない体制を一緒につくる。</p></div>
+<!-- WHY 1: 正規品×価格×まとめて（写真: 整備士） -->
+<section class="ls ink">
+  <div class="ls-in split">
+    <figure class="sp-ph"><div class="ph" style="background-image:url('assets/svc-repair.jpg')"></div><span class="lab">自社整備工場・三郷</span></figure>
+    <div class="sp-tx">
+      <span class="tag">WHY KU — 選ばれる理由</span>
+      <h2>正規品を、<br>台数に合わせて、<br><em>まとめて。</em></h2>
+      <ul class="chk">
+        <li><span class="k">01</span><div><b>規格適合の正規品だけ</b>ISO 22241適合のAdBlue®のみを供給。SCRシステムを傷めない、安心して入れられる一本。</div></li>
+        <li><span class="k">02</span><div><b>メリットある価格</b>自社トラックで日々使う立場だからこそ、無理のない価格でご提供。</div></li>
+        <li><span class="k">03</span><div><b>台数・使用量に合わせて</b>保有台数と月間使用量に合わせて、必要な量をまとめて。切らさない体制を一緒につくる。</div></li>
+      </ul>
     </div>
-    <dl class="dspecs">
-      <div><dt>取扱</dt><dd>AdBlue®正規品（AUS 32 / ISO 22241適合）</dd></div>
-      <div><dt>容量</dt><dd>IBCコンテナ 1000L ほか。小容量・定期納入はご相談ください</dd></div>
-      <div><dt>セット対応</dt><dd>点検・車検・一般整備・タイヤ取付／出張交換とあわせてご用命いただけます</dd></div>
-      <div><dt>お問い合わせ</dt><dd>TEL 048-952-2288（運送・販売）／ 埼玉県三郷市彦江1-213-3</dd></div>
-    </dl>
   </div>
 </section>
 
-<!-- 補給・保管の目安 -->
-<section class="dsec dark">
-  <div class="dsec-in">
-    <span class="ey">TIPS — 補給・保管の目安</span>
+<!-- 帯 -->
+<section class="band">
+  <div class="band-in">
+    <h2>トラックのこと、ぜんぶウチで。<br>AdBlue®も、その一部。</h2>
+    <div class="sp"><b>IBC 1000L</b><span>ほか、小容量・定期納入はご相談</span></div>
+  </div>
+</section>
+
+<!-- WHY 2: 整備・タイヤとセット（写真: タイヤ作業） -->
+<section class="ls paper">
+  <div class="ls-in split rev">
+    <figure class="sp-ph"><div class="ph" style="background-image:url('assets/svc-tirework.jpg')"></div><span class="lab">出張タイヤ交換</span></figure>
+    <div class="sp-tx">
+      <span class="tag">ONE STOP — セットで頼める</span>
+      <h2>整備も、タイヤも、<br>AdBlue®も。<em>一本で。</em></h2>
+      <p class="sub" style="margin-bottom:24px">点検・車検、一般整備、タイヤ取付・出張交換とあわせてAdBlue®をご用命いただけます。手配先を一つにまとめて、現場の手間を減らす。</p>
+      <ul class="chk">
+        <li><span class="k">✓</span><div><b>点検・車検・一般整備とセット</b>入庫のタイミングで補給・まとめ買い。</div></li>
+        <li><span class="k">✓</span><div><b>タイヤ取付・出張交換とセット</b>現場・車庫で交換するついでにAdBlue®も。</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="ls ink">
+  <div class="ls-in">
+    <span class="tag">TIPS — 補給・保管の目安</span>
     <h2>切らさない、<em>コツ。</em></h2>
     <p class="sub">消費量と保管条件を知っておけば、AdBlue®は怖くない。目安を押さえて、余裕を持って補給する。</p>
-    <div class="dflow">
-      <div class="dstep"><div class="sn">01</div><h4>消費の目安</h4><p>燃料消費量の約3〜5%が目安。車種・積載・走行条件で変わるので、給油ごとに残量を確認。</p></div>
-      <div class="dstep"><div class="sn">02</div><h4>警告が出たら</h4><p>残量警告が出たら早めに補給。空のまま停止すると、再始動できない車両がある。</p></div>
-      <div class="dstep"><div class="sn">03</div><h4>保管のコツ</h4><p>直射日光・高温を避けて保管。約−11℃で凍結するが、解凍すれば品質は戻る。</p></div>
-      <div class="dstep"><div class="sn">04</div><h4>入れる時の注意</h4><p>燃料タンクに入れない・異物や水を混ぜない。専用の注入口へ、清潔な器具で。</p></div>
+    <div class="tiles">
+      <div class="tile"><div class="n">01</div><h4>消費の目安</h4><p>燃料消費量の約3〜5%が目安。車種・積載・走行条件で変わるので、給油ごとに残量を確認。</p></div>
+      <div class="tile"><div class="n">02</div><h4>警告が出たら</h4><p>残量警告が出たら早めに補給。空のまま停止すると、再始動できない車両がある。</p></div>
+      <div class="tile"><div class="n">03</div><h4>保管のコツ</h4><p>直射日光・高温を避けて保管。約−11℃で凍結するが、解凍すれば品質は戻る。</p></div>
+      <div class="tile"><div class="n">04</div><h4>入れる時の注意</h4><p>燃料タンクに入れない・異物や水を混ぜない。専用の注入口へ、清潔な器具で。</p></div>
     </div>
   </div>
 </section>
 
-<!-- ご購入の流れ -->
-<section class="dsec light">
-  <div class="dsec-in">
-    <span class="ey">FLOW — ご購入の流れ</span>
+<!-- FLOW -->
+<section class="ls paper">
+  <div class="ls-in">
+    <span class="tag">FLOW — ご購入の流れ</span>
     <h2>相談から、<em>納品まで。</em></h2>
-    <div class="dflow">
-      <div class="dstep"><div class="sn">01</div><h4>相談</h4><p>保有台数・月間の使用量・希望の容量を相談。</p></div>
-      <div class="dstep"><div class="sn">02</div><h4>見積</h4><p>数量に応じた価格と納期を提示。まとめ買いも対応。</p></div>
-      <div class="dstep"><div class="sn">03</div><h4>手配</h4><p>正規品を手配。整備・タイヤ交換とセットも可。</p></div>
-      <div class="dstep"><div class="sn">04</div><h4>納品</h4><p>三郷の拠点でお渡し。定期納入はご相談ください。</p></div>
+    <div class="flow">
+      <div><div class="n">01</div><h4>相談</h4><p>保有台数・月間の使用量・希望の容量を電話かフォームで。</p></div>
+      <div><div class="n">02</div><h4>見積</h4><p>数量に応じた価格と納期を提示。まとめ買いも対応。</p></div>
+      <div><div class="n">03</div><h4>手配</h4><p>正規品を手配。整備・タイヤ交換とセットも可。</p></div>
+      <div><div class="n">04</div><h4>納品</h4><p>三郷の拠点でお渡し。定期納入はご相談ください。</p></div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="dsec light" style="padding-top:0">
-  <div class="dsec-in">
-    <span class="ey">FAQ — よくある質問</span>
-    <h2 class="fit">よく聞かれること。</h2>
-    <div class="lp-faq">
+<section class="ls paper" style="padding-top:0">
+  <div class="ls-in">
+    <span class="tag">FAQ — よくある質問</span>
+    <h2>よく聞かれること。</h2>
+    <div class="faq">
       <details><summary>AdBlue®はどの車に必要ですか？</summary><p>尿素SCRシステムを搭載したディーゼル車に必要です。近年の大型・中型トラックの多くが該当します。お手元の車両が対象かどうかは、車検証や取扱説明書、または当社へお問い合わせください。</p></details>
       <details><summary>正規品と非正規品で何が違いますか？</summary><p>AdBlue®はISO 22241で純度・不純物の上限が厳しく定められています。規格外の尿素水は触媒や噴射系の故障につながる恐れがあり、修理費が高額になることも。当社は規格適合の正規品のみを取り扱います。</p></details>
       <details><summary>どのくらいの頻度で補給が必要ですか？</summary><p>目安は燃料消費量の約3〜5%です。走行距離や積載、運行条件によって変わるため、給油のタイミングで残量を確認する習慣が確実です。</p></details>
@@ -146,41 +162,30 @@
 </section>
 
 <!-- CTA -->
-<section class="dcta">
-  <h2 class="fit">AdBlue®、切らすな。</h2>
-  <p>台数と使用量を教えてください。必要な量を、メリットある価格で、まとめて用意します。整備・タイヤとのセットも一本で。</p>
-  <div class="dcta-acts">
-    <button class="btn btn-bk" onclick="location.href='index.html#contact'">見積を依頼する <span class="ar">→</span></button>
-    <button class="btn btn-yl" onclick="location.href='tel:0489522288'">電話する</button>
-  </div>
-  <a class="dcta-ph" href="tel:0489522288">048 — 952 — 2288<small>運送・販売のお問い合わせ</small></a>
-</section>
-
-<!-- 他事業 -->
-<section class="dother">
-  <div class="dother-in">
-    <span class="ey">OTHER SERVICES — 他の事業</span>
-    <div class="dother-grid">
-      <a class="olink" href="parts.html"><div><span class="oe">SERVICE 03 — 販売</span><span class="ot">タイヤ・用品販売</span></div><span class="oar">→</span></a>
-      <a class="olink" href="maintenance.html"><div><span class="oe">SERVICE 02 — 整備</span><span class="ot">整備</span></div><span class="oar">→</span></a>
+<section class="lcta">
+  <div class="bg" style="background-image:url('assets/fleet-4t.jpg')"></div>
+  <div class="lcta-in">
+    <h2>AdBlue®、<br><em>切らすな。</em></h2>
+    <p>台数と使用量を教えてください。必要な量を、メリットある価格で、まとめて用意します。整備・タイヤとのセットも一本で。</p>
+    <div class="lcta-acts">
+      <a class="btn btn-yl" href="index.html#contact">見積を依頼する <span class="ar">→</span></a>
+      <a class="btn btn-bk" href="tel:0489522288">電話する</a>
     </div>
+    <a class="lcta-ph" href="tel:0489522288">048 — 952 — 2288<small>運送・販売のお問い合わせ／平日</small></a>
   </div>
 </section>
 
-<footer class="ft">
-  <div class="ft-grid">
+<footer class="lpf">
+  <div class="lpf-in">
     <div>
       <a class="logo inv" href="index.html" aria-label="KU TRUCK ＆ TYRE SERVICE">
         <span class="ku">KU</span>
         <span class="stk"><span class="tread"></span><span class="lname">TRUCK ＆ TYRE SERVICE</span><span class="tread"></span></span>
       </a>
-      <div class="addr" style="margin-top:18px">〒341-0037 埼玉県三郷市彦江1-213-3<br>TEL 運送 048-952-2288 / 整備 048-952-2184<br>FAX 048-953-1788<br>株式会社KU TRUCK ＆ TYRE SERVICE</div>
+      <div class="addr">株式会社KU TRUCK ＆ TYRE SERVICE<br>〒341-0037 埼玉県三郷市彦江1-213-3<br>TEL 運送・販売 048-952-2288 ／ 整備 048-952-2184 ／ FAX 048-953-1788</div>
     </div>
-    <div><h6>SERVICES</h6><ul><li><a href="transport.html">運送</a></li><li><a href="maintenance.html">整備</a></li><li><a href="parts.html">タイヤ・用品販売</a></li><li><a href="adblue.html">AdBlue®正規品</a></li></ul></div>
-    <div><h6>COMPANY</h6><ul><li><a href="index.html#company">会社概要</a></li><li><a href="message.html">代表挨拶</a></li><li><a href="index.html#fleet">車両保有台数</a></li></ul></div>
-    <div><h6>CONTACT</h6><ul><li><a href="index.html#contact">お問い合わせ</a></li><li><a href="index.html#contact">見積依頼</a></li><li><a href="index.html#recruit">採用エントリー</a></li></ul></div>
+    <a class="back" href="index.html">← KU TRUCK ＆ TYRE SERVICE のサイトへ</a>
   </div>
-  <div class="ft-base"><span>© 1981 — 2026 KU TRUCK ＆ TYRE SERVICE</span><span>埼玉・三郷 — SINCE 1981</span></div>
 </footer>
 
 <script src="app.js"></script>

@@ -1,0 +1,171 @@
+/* ═══════════════════════════════════════════════════════════
+   AdBlue® LP — Street edition (adblue.html)
+   depends on styles.css for :root tokens, fonts, .btn, .logo, LINE fab
+   ═══════════════════════════════════════════════════════════ */
+:root{--tl:#40b8d0;--tl2:#2f97a9;--ink:#0b0e10;--paper:#f4f7f8;--stripe:repeating-linear-gradient(-45deg,rgba(255,255,255,.05) 0 14px,transparent 14px 40px)}
+body.lp{background:var(--ink);color:#fff}
+
+/* ── LP専用ヘッダー（共通ナビは使わない） ── */
+.lph{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;background:rgba(11,14,16,.82);backdrop-filter:blur(8px);border-bottom:3px solid var(--tl)}
+.lph .logo{color:#fff}
+.lph-r{display:flex;align-items:center;gap:18px}
+.lph-tel{font-family:"Anton";font-size:22px;letter-spacing:.02em;color:#fff;display:inline-flex;align-items:baseline;gap:8px}
+.lph-tel small{font-family:"Archivo Black";font-size:10px;letter-spacing:.16em;color:var(--tl)}
+.lph-cta{padding:12px 18px;font-size:12px;box-shadow:4px 4px 0 var(--tl)}
+@media(max-width:640px){.lph{padding:10px 14px}.lph-tel span{display:none}.lph-tel{font-size:18px}.lph .logo .stk{display:none}}
+
+/* ── STREET HERO ── */
+.sh{position:relative;min-height:clamp(760px,100vh,1000px);overflow:hidden;background:var(--ink);padding:150px 0 0;border-bottom:8px solid var(--tl)}
+.sh-photo{position:absolute;inset:-4% -4% 0 -4%;background-size:cover;background-position:60% 55%;filter:grayscale(1) contrast(1.35) brightness(.72);transform:scale(1.02)}
+.sh-tone{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,14,16,.96) 0%,rgba(11,14,16,.86) 38%,rgba(64,184,208,.28) 100%);mix-blend-mode:multiply}
+.sh-tone::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,14,16,.55),transparent 30%,transparent 70%,rgba(11,14,16,.85))}
+.sh-stripes{position:absolute;inset:0;background:var(--stripe);pointer-events:none}
+.sh-in{position:relative;z-index:3;max-width:1320px;margin:0 auto;padding:0 40px 170px}
+.sh-kicker{display:inline-flex;flex-wrap:wrap;gap:0;font-family:"Archivo Black";font-size:11px;letter-spacing:.24em;margin-bottom:26px}
+.sh-kicker span{padding:8px 14px;border:3px solid #fff}
+.sh-kicker span+span{border-left:0;background:#fff;color:#000}
+.sh-title{font-family:"Anton";line-height:.82;letter-spacing:-.02em;display:flex;flex-wrap:wrap;align-items:flex-end;gap:0 .06em;font-size:clamp(4.6rem,17vw,260px)}
+.sh-title .ol{color:transparent;-webkit-text-stroke:4px #fff;text-stroke:4px #fff}
+.sh-title .fl{color:var(--tl);text-shadow:10px 10px 0 #000}
+.sh-title .dot{color:#fff}
+.sh-sub{font-family:var(--jpd);font-weight:900;font-size:clamp(1.6rem,4.6vw,52px);letter-spacing:.02em;margin-top:22px;display:inline-block;background:#fff;color:#000;padding:6px 18px;transform:rotate(-1.5deg);box-shadow:8px 8px 0 var(--tl)}
+.sh-sub b{color:var(--tl2)}
+.sh-lead{max-width:560px;margin-top:34px;font-size:16px;line-height:2;color:rgba(255,255,255,.88);font-weight:500}
+.sh-acts{display:flex;gap:18px;flex-wrap:wrap;margin-top:36px}
+.sh-acts .btn-bk{color:#fff}
+.sh-acts .btn-tel{background:var(--tl);color:#000;font-family:"Anton";font-size:20px;letter-spacing:.02em;padding:14px 24px}
+/* ステッカー */
+.stkr{position:absolute;z-index:4;font-family:"Archivo Black";font-size:13px;letter-spacing:.08em;padding:10px 16px;border:3px solid #000;box-shadow:5px 5px 0 #000;white-space:nowrap}
+.stkr.s1{top:18%;right:9%;background:var(--tl);color:#000;transform:rotate(7deg)}
+.stkr.s2{top:30%;right:22%;background:#fff;color:#000;transform:rotate(-5deg)}
+.stkr.s3{top:44%;right:6%;background:#000;color:var(--tl);border-color:var(--tl);transform:rotate(3deg)}
+.stkr.s4{top:58%;right:26%;background:#fff;color:#000;transform:rotate(-9deg);font-family:"Anton";font-size:22px;letter-spacing:.04em;padding:6px 16px}
+.tape{position:absolute;z-index:5;width:150px;height:30px;background:rgba(255,255,255,.75);transform:rotate(-8deg);box-shadow:0 2px 6px rgba(0,0,0,.4)}
+/* ポスター（再現イラスト） */
+.sh-poster{position:absolute;z-index:4;right:5%;bottom:120px;width:min(520px,42vw);margin:0;border:5px solid #000;box-shadow:16px 16px 0 var(--tl);transform:rotate(3deg);background:#16171b}
+.sh-poster img{display:block;width:100%;height:auto}
+.sh-poster .tape{top:-16px;left:34%}
+/* マーキー帯 */
+.sh-marq{position:absolute;z-index:6;left:0;right:0;bottom:0;background:var(--tl);color:#000;border-top:6px solid #000;padding:14px 0;overflow:hidden;transform:rotate(-1.2deg) translateY(10px);transform-origin:left bottom;width:106%;margin-left:-3%}
+.sh-marq .track{display:flex;gap:44px;white-space:nowrap;font-family:"Anton";font-size:30px;letter-spacing:.06em;animation:lpm 22s linear infinite}
+@keyframes lpm{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:1100px){.stkr.s2,.stkr.s4{display:none}.sh-poster{width:min(420px,60vw);right:4%}}
+@media(max-width:860px){
+  .sh{padding-top:118px}.sh-in{padding:0 22px 40px}
+  .sh-title{font-size:clamp(4.2rem,26vw,160px)}
+  .stkr{display:none}
+  .sh-in{padding-bottom:110px}
+  .sh-marq .track{font-size:22px}
+}
+
+/* ── セクション共通 ── */
+.ls{position:relative;padding:110px 40px;overflow:hidden}
+.ls-in{max-width:1240px;margin:0 auto;position:relative;z-index:2}
+.ls.paper{background:var(--paper);color:#000}
+.ls.ink{background:var(--ink);color:#fff}
+.ls.ink::before{content:"";position:absolute;inset:0;background:var(--stripe);pointer-events:none}
+.tag{display:inline-block;font-family:"Archivo Black";font-size:11px;letter-spacing:.22em;padding:7px 14px;margin-bottom:22px;background:#000;color:var(--tl);transform:rotate(-1.5deg)}
+.ls.ink .tag{background:var(--tl);color:#000}
+.ls h2{font-family:var(--jpd);font-weight:900;font-size:clamp(2.2rem,6.4vw,76px);line-height:.98;letter-spacing:-.01em;word-break:keep-all;overflow-wrap:break-word;margin-bottom:18px}
+.ls h2 em{font-style:normal;color:var(--tl);display:inline-block}
+.ls .sub{font-size:16px;line-height:1.95;max-width:640px;font-weight:500;opacity:.9;margin-bottom:54px}
+
+/* ── 車両フォトストリップ ── */
+.strip{background:#000;padding:0;border-bottom:6px solid var(--tl)}
+.strip-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;border-right:4px solid #000}
+.strip figure:last-child{border-right:0}
+.strip .ph{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(1) contrast(1.25) brightness(.85);transition:filter .3s,transform .5s}
+.strip figure:hover .ph{filter:none;transform:scale(1.04)}
+.strip figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(11,14,16,.9));mix-blend-mode:multiply}
+.strip figcaption{position:absolute;left:18px;bottom:16px;z-index:2;font-family:"Anton";font-size:26px;color:#fff;letter-spacing:.02em;text-shadow:4px 4px 0 #000}
+.strip figcaption small{display:block;font-family:"Archivo Black";font-size:10px;letter-spacing:.2em;color:var(--tl);text-shadow:none;margin-bottom:4px}
+@media(max-width:860px){.strip-in{grid-template-columns:repeat(2,1fr)}.strip figcaption{font-size:20px}}
+
+/* ── WHAT: 3ブロック ── */
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.wcard{background:#fff;color:#000;border:4px solid #000;box-shadow:10px 10px 0 var(--tl);padding:30px 26px 28px;position:relative}
+.wcard .n{font-family:"Anton";font-size:72px;line-height:.9;color:transparent;-webkit-text-stroke:3px #000;margin-bottom:14px}
+.wcard h3{font-family:var(--jpd);font-weight:900;font-size:26px;line-height:1.1;margin-bottom:6px}
+.wcard .en{font-family:"Archivo Black";font-size:10px;letter-spacing:.22em;color:var(--tl2);margin-bottom:14px}
+.wcard p{font-size:14.5px;line-height:1.9;color:#222;font-weight:500}
+.wcard:nth-child(2){transform:rotate(1deg)}.wcard:nth-child(3){transform:rotate(-1deg)}
+@media(max-width:980px){.wgrid{grid-template-columns:1fr}.wcard{transform:none!important}}
+
+/* ── SPLIT（写真＋テキスト） ── */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.split.rev .sp-ph{order:2}
+.sp-ph{position:relative;margin:0;border:5px solid #000;box-shadow:16px 16px 0 var(--tl);aspect-ratio:4/3;overflow:hidden;background:#000}
+.ls.ink .sp-ph{box-shadow:16px 16px 0 #fff}
+.sp-ph .ph{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(.85) contrast(1.2)}
+.sp-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(64,184,208,.45),transparent 60%);mix-blend-mode:multiply}
+.sp-ph .lab{position:absolute;left:-14px;bottom:26px;z-index:2;font-family:"Anton";font-size:22px;letter-spacing:.04em;background:#fff;color:#000;padding:8px 16px;border:3px solid #000;transform:rotate(-2deg)}
+.sp-tx h2{margin-bottom:22px}
+.chk{list-style:none;display:grid;gap:14px;margin-top:8px}
+.chk li{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;font-size:15.5px;line-height:1.8;font-weight:600}
+.chk li b{display:block;font-family:var(--jpd);font-weight:900;font-size:20px;line-height:1.2;margin-bottom:2px}
+.chk .k{font-family:"Anton";font-size:34px;line-height:1;color:#000;background:var(--tl);width:56px;height:56px;display:grid;place-items:center;border:3px solid #000;box-shadow:4px 4px 0 #000;transform:rotate(-4deg)}
+.ls.ink .chk .k{background:#fff}
+.ls.ink .chk li{color:#fff}
+@media(max-width:980px){.split{grid-template-columns:1fr;gap:34px}.split.rev .sp-ph{order:0}}
+
+/* ── 帯（ステートメント） ── */
+.band{background:var(--tl);color:#000;padding:70px 40px;border-top:6px solid #000;border-bottom:6px solid #000;position:relative;overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(0,0,0,.06) 0 22px,transparent 22px 44px)}
+.band-in{max-width:1240px;margin:0 auto;position:relative;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.band h2{font-family:var(--jpd);font-weight:900;font-size:clamp(1.9rem,5.4vw,64px);line-height:1.05;letter-spacing:-.01em;word-break:keep-all}
+.band .sp{display:grid;gap:6px;text-align:right}
+.band .sp b{font-family:"Anton";font-size:clamp(2rem,5vw,56px);line-height:1;background:#000;color:var(--tl);padding:6px 16px}
+.band .sp span{font-family:"Archivo Black";font-size:11px;letter-spacing:.2em}
+@media(max-width:860px){.band{padding:56px 22px}.band-in{grid-template-columns:1fr}.band .sp{text-align:left}}
+
+/* ── TIPS: ステンシルタイル ── */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.tile{border:3px solid var(--tl);padding:26px 22px;background:rgba(255,255,255,.03);position:relative}
+.tile .n{font-family:"Anton";font-size:40px;color:var(--tl);line-height:1}
+.tile h4{font-family:var(--jpd);font-weight:900;font-size:19px;margin:10px 0 8px}
+.tile p{font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.78);font-weight:500}
+.tile::before{content:"";position:absolute;top:-3px;left:22px;width:60px;height:3px;background:#fff}
+@media(max-width:980px){.tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.tiles{grid-template-columns:1fr}}
+
+/* ── FLOW ── */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:4px solid #000;background:#fff;color:#000}
+.flow div{padding:30px 24px 28px;border-right:4px solid #000;position:relative}
+.flow div:last-child{border-right:0}
+.flow .n{font-family:"Anton";font-size:54px;line-height:1;color:var(--tl);text-shadow:3px 3px 0 #000}
+.flow h4{font-family:var(--jpd);font-weight:900;font-size:20px;margin:12px 0 8px}
+.flow p{font-size:14px;line-height:1.8;color:#222;font-weight:500}
+@media(max-width:980px){.flow{grid-template-columns:1fr 1fr}.flow div:nth-child(2){border-right:0}.flow div:nth-child(-n+2){border-bottom:4px solid #000}}
+@media(max-width:600px){.flow{grid-template-columns:1fr}.flow div{border-right:0;border-bottom:4px solid #000}.flow div:last-child{border-bottom:0}}
+
+/* ── FAQ ── */
+.faq{display:grid;gap:16px;max-width:900px}
+.faq details{background:#fff;color:#000;border:3px solid #000;box-shadow:6px 6px 0 #000}
+.faq summary{cursor:pointer;list-style:none;padding:18px 22px;font-family:var(--jpd);font-weight:900;font-size:17px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"＋";font-family:"Anton";color:var(--tl2);font-size:24px;line-height:1;flex:0 0 auto}
+.faq details[open] summary::after{content:"－"}
+.faq details p{padding:0 22px 20px;font-size:14.5px;line-height:1.9;color:#333;font-weight:500}
+
+/* ── CTA ── */
+.lcta{position:relative;background:var(--ink);color:#fff;padding:130px 40px 120px;text-align:center;overflow:hidden;border-top:8px solid var(--tl)}
+.lcta .bg{position:absolute;inset:0;background-size:cover;background-position:center 40%;filter:grayscale(1) contrast(1.3) brightness(.35)}
+.lcta::after{content:"";position:absolute;inset:0;background:var(--stripe);pointer-events:none}
+.lcta-in{position:relative;z-index:2;max-width:1000px;margin:0 auto}
+.lcta h2{font-family:var(--jpd);font-weight:900;font-size:clamp(2.6rem,9vw,110px);line-height:.95;letter-spacing:-.01em}
+.lcta h2 em{font-style:normal;color:var(--tl);display:inline-block;white-space:nowrap}
+.lcta p{font-size:17px;font-weight:600;line-height:1.9;margin:26px auto 40px;max-width:640px;color:rgba(255,255,255,.9)}
+.lcta-acts{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.lcta-acts .btn-bk{color:#fff}
+.lcta-ph{display:inline-block;margin-top:clamp(48px,8vw,80px);font-family:"Anton";font-size:clamp(2.4rem,9vw,96px);line-height:1;color:#fff;letter-spacing:.01em;text-shadow:8px 8px 0 var(--tl2);white-space:nowrap}
+.lcta-ph small{display:block;font-family:"Archivo Black";font-size:12px;letter-spacing:.28em;color:var(--tl);text-shadow:none;margin-top:14px}
+
+/* ── LPフッター（最小） ── */
+.lpf{background:#000;color:#fff;padding:56px 40px 110px;border-top:4px solid var(--tl)}
+.lpf-in{max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-end}
+.lpf .addr{font-family:"Space Grotesk";font-size:12px;line-height:1.9;color:rgba(255,255,255,.65);margin-top:14px}
+.lpf .back{font-family:"Archivo Black";font-size:12px;letter-spacing:.12em;color:var(--tl);border:3px solid var(--tl);padding:12px 18px}
+.lpf .back:hover{background:var(--tl);color:#000}
+
+@media(max-width:860px){.ls{padding:76px 22px}.lcta{padding:90px 22px 80px}.lpf{padding:44px 22px 100px}}
