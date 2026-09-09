@@ -377,3 +377,7 @@ body.form-pending .cform,body.form-pending .to-form{display:none} /* 送信先�
 .thanks h1 em{font-style:italic;color:#fff;text-shadow:4px 4px 0 #000}
 .thanks p{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:16px;color:#0d0d0d;max-width:520px;line-height:1.9;margin-top:10px}
 .thanks .home{margin-top:26px;background:#000;color:var(--yl);border:3px solid #000;box-shadow:5px 5px 0 #fff}
+
+/* 事業カード内の個別リンク（AdBlue LPへ） */
+.svl a.lkin{color:var(--yl);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.svl a.lkin:hover{color:#fff}

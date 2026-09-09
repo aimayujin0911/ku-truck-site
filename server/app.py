@@ -43,7 +43,7 @@ SMTP_FROM = os.environ.get("SMTP_FROM", "no-reply@li-go.jp")
 SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL", "")
 RATE_LIMIT = int(os.environ.get("RATE_LIMIT_PER_10MIN", "5"))
 
-PAGES = {"index", "transport", "maintenance", "parts", "message", "thanks"}
+PAGES = {"index", "transport", "maintenance", "parts", "message", "thanks", "adblue"}
 EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
 
 # ログは常にUTF-8で出す（Windowsローカル実行でcp932に落ちて壊れるのを防ぐ）

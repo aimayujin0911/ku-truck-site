@@ -188,3 +188,21 @@
   .olink{padding:22px 22px}
   .olink .oar{font-size:32px}
 }
+
+/* ═══════ AdBlue LP (adblue.html) ═══════ */
+.lp-hero .dh-in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.lp-art{margin:0;min-width:0;border:4px solid #000;box-shadow:12px 12px 0 var(--yl);background:#16171b;transform:rotate(1.5deg)}
+.lp-art img{display:block;width:100%;height:auto}
+.dh .lp-acts{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px}
+a.dcard{display:block;color:inherit}
+.dcard .lk{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:"Archivo Black";font-size:12px;letter-spacing:.1em;color:var(--cy)}
+.dcard .lk::after{content:"→";transition:transform .2s}
+.dcard:hover .lk::after{transform:translateX(6px)}
+.lp-faq{display:grid;gap:16px;max-width:900px}
+.lp-faq details{background:#fff;border:3px solid #000;box-shadow:6px 6px 0 #000}
+.lp-faq summary{cursor:pointer;list-style:none;padding:18px 22px;font-family:var(--jpd);font-weight:900;font-size:17px;color:#000;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.lp-faq summary::-webkit-details-marker{display:none}
+.lp-faq summary::after{content:"＋";font-family:"Anton";color:var(--cy);font-size:24px;line-height:1;flex:0 0 auto}
+.lp-faq details[open] summary::after{content:"－"}
+.lp-faq details p{padding:0 22px 20px;font-size:14.5px;line-height:1.9;color:#333;font-weight:500}
+@media(max-width:980px){.lp-hero .dh-in{grid-template-columns:minmax(0,1fr);gap:36px}.lp-art{transform:none;max-width:560px}}
