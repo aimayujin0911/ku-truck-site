@@ -35,6 +35,7 @@
   <div class="sh-tone"></div>
   <div class="sh-stripes"></div>
   <div class="sh-in">
+<div class="sh-copy">
     <div class="sh-kicker"><span>KU TRUCK ＆ TYRE SERVICE</span><span>MISATO, SAITAMA</span></div>
     <h1 class="sh-title"><span class="ol">AD</span><span class="fl">BLUE</span><span class="dot">.</span></h1>
     <p class="sh-sub">切らすな、<b>AdBlue®</b>。</p>
@@ -43,11 +44,75 @@
       <a class="btn btn-tel" href="tel:0489522288">048-952-2288 に電話</a>
       <a class="btn btn-bk" href="#form">見積を依頼する <span class="ar">→</span></a>
     </div>
-  </div>
-  <span class="stkr s1">正規品 ONLY</span>
-  <span class="stkr s2">AUS 32 / ISO 22241</span>
   <span class="stkr s3">IBC 1000L</span>
   <span class="stkr s4">DON'T RUN DRY</span>
+</div>
+<div class="sh-form" id="form">
+<div class="abf-top"><span class="stkr s1">正規品 ONLY</span><div class="abf-kicker">CONTACT — お見積り・ご相談</div><h2 class="abf-h">使用量を教えてください。<em>見積ります。</em></h2><p class="abf-lead">全国販売対応・1,000Lタンク給水限定。所要3分。</p></div>
+<form id="abForm" class="abf" action="https://script.google.com/macros/s/AKfycbw7P8k-NWX1WxDujhTyQHgGwE6Rczkf5qBI3hCpuGWngldTFXe3XDmIECdbl_OLndV3ew/exec" method="POST" target="abGasFrame" novalidate>
+      <div class="abf-card">
+        <div class="abf-head"><span class="n">1</span><span>貴社情報</span></div>
+        <div class="abf-grid">
+          <label class="f"><span class="lb">会社名 <em class="req">必須</em></span><input type="text" id="company" name="company" placeholder="例）株式会社ケーユー運輸" autocomplete="organization"></label>
+          <label class="f"><span class="lb">フリガナ</span><input type="text" id="kana" name="kana" placeholder="カブシキガイシャ ケーユーウンユ"></label>
+          <label class="f"><span class="lb">ご担当者名 <em class="req">必須</em></span><input type="text" id="name" name="name" placeholder="例）高橋 太郎" autocomplete="name"></label>
+          <label class="f"><span class="lb">電話番号 <em class="req">必須</em></span><input type="tel" id="tel" name="tel" placeholder="048-952-2184" autocomplete="tel" inputmode="tel"></label>
+          <label class="f abf-wide"><span class="lb">メールアドレス <em class="req">必須</em></span><input type="email" id="email" name="email" placeholder="tyre@example.co.jp" autocomplete="email" inputmode="email"></label>
+          <div class="f abf-wide">
+            <span class="lb">ご住所 <small>タンク設置先</small></span>
+            <div class="abf-zip">
+              <input type="tel" id="zip" name="zip" maxlength="8" placeholder="郵便番号 3410037" inputmode="numeric" autocomplete="postal-code">
+              <span class="note" id="zipNote"></span>
+            </div>
+            <input type="text" id="addr" name="addr" placeholder="埼玉県三郷市彦江1-213-3" autocomplete="street-address">
+            <span class="note">※ 郵便番号を入力すると住所が自動入力されます。番地・建物名を追記してください。</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="abf-card">
+        <div class="abf-head"><span class="n">2</span><span>AdBlueのご利用状況</span></div>
+        <div class="abf-q">
+          <div class="qh"><span class="qn">Q1</span><span class="qt">既存のご契約先</span><em class="req">必須</em></div>
+          <input type="text" id="vendor" name="vendor" placeholder="ガソリンスタンド・販売店／未契約の場合は「なし」">
+          <span class="note">※ メーカー既存給水先の場合は、ご対応をお断りさせていただく場合がございます。</span>
+        </div>
+        <div class="abf-q">
+          <div class="qh"><span class="qn">Q2</span><span class="qt">月間使用量</span></div>
+          <div class="abf-inline"><input type="number" id="volume" name="volume" class="short" placeholder="1000" min="0" inputmode="numeric"><span class="unit">L / 月</span><span class="note">※ わからない場合は、下記の車両台数をご入力ください。</span></div>
+          <div class="abf-fleet">
+            <label><span>大型</span><input type="number" id="large" name="large" min="0" inputmode="numeric"><span>台</span></label>
+            <label><span>4t</span><input type="number" id="mid" name="mid" min="0" inputmode="numeric"><span>台</span></label>
+            <label><span>2〜3t</span><input type="number" id="small" name="small" min="0" inputmode="numeric"><span>台</span></label>
+            <label class="abf-wide"><span>その他</span><input type="text" id="other" name="other" placeholder="車種・台数など"></label>
+          </div>
+        </div>
+        <div class="abf-q">
+          <div class="qh"><span class="qn">Q3</span><span class="qt">現在のご購入価格（他社様の単価）</span><em class="opt">任意</em></div>
+          <div class="abf-inline"><input type="number" id="price" name="price" class="short" placeholder="85" min="0" inputmode="decimal"><span class="unit">円 / L</span><span class="note">（消費税別）</span></div>
+          <span class="note">※ ご記入いただくと、より具体的な価格でのご提案が可能です。</span>
+        </div>
+        <div class="abf-q">
+          <div class="qh"><span class="qn">Q4</span><span class="qt">ご希望の連絡方法</span></div>
+          <div class="abf-seg" id="seg" role="radiogroup" aria-label="ご希望の連絡方法">
+            <button type="button" class="on" data-v="メール" aria-pressed="true">メール</button>
+            <button type="button" data-v="お電話" aria-pressed="false">お電話</button>
+          </div>
+          <input type="hidden" id="contact" name="contact" value="メール">
+        </div>
+      </div>
+
+      <div class="abf-card abf-send">
+        <p class="note">ご記入いただいた内容は、AdBlueに関するご提案および資料送付の目的にのみ使用いたします。</p>
+        <div id="abErr" class="abf-err" hidden></div>
+        <button type="submit" class="btn btn-yl abf-submit" id="abSend">回答を送信する <span class="ar">→</span></button>
+      </div>
+    </form>
+<div id="abThanks" class="abf-thanks" hidden>
+      <div class="tag">THANKS</div>
+<iframe name="abGasFrame" id="abGasFrame" title="送信処理" hidden></iframe>
+</div>
+  </div>
   <div class="sh-marq"><div class="track">
     <span>切らすな、AdBlue®。</span><span>DON'T RUN DRY</span><span>正規品 AUS 32 / ISO 22241</span><span>台数に合わせて、まとめて。</span><span>整備・タイヤとセットOK</span><span>埼玉・三郷 KU TRUCK ＆ TYRE SERVICE</span>
     <span>切らすな、AdBlue®。</span><span>DON'T RUN DRY</span><span>正規品 AUS 32 / ISO 22241</span><span>台数に合わせて、まとめて。</span><span>整備・タイヤとセットOK</span><span>埼玉・三郷 KU TRUCK ＆ TYRE SERVICE</span>
@@ -158,82 +223,6 @@
       <details><summary>どのくらいの頻度で補給が必要ですか？</summary><p>目安は燃料消費量の約3〜5%です。走行距離や積載、運行条件によって変わるため、給油のタイミングで残量を確認する習慣が確実です。</p></details>
       <details><summary>整備やタイヤ交換と一緒に頼めますか？</summary><p>はい。点検・車検、一般整備、タイヤ取付・出張交換とあわせてご用命いただけます。まとめてお任せいただくことで、手配の手間を減らせます。</p></details>
     </div>
-  </div>
-</section>
-
-<!-- CONTACT FORM（GASアンケートと同一項目・同一キーでPOST） -->
-<section class="ls ink" id="form">
-  <div class="ls-in">
-    <span class="tag">CONTACT — お見積り・ご相談</span>
-    <h2>使用量を教えてください。<br><em>見積ります。</em></h2>
-    <p class="sub">全国販売対応。1,000Lタンク給水限定。ご利用状況に応じたお見積書を作成します。所要3分。</p>
-
-    <form id="abForm" class="abf" action="https://script.google.com/macros/s/AKfycbw7P8k-NWX1WxDujhTyQHgGwE6Rczkf5qBI3hCpuGWngldTFXe3XDmIECdbl_OLndV3ew/exec" method="POST" target="abGasFrame" novalidate>
-      <div class="abf-card">
-        <div class="abf-head"><span class="n">1</span><span>貴社情報</span></div>
-        <div class="abf-grid">
-          <label class="f"><span class="lb">会社名 <em class="req">必須</em></span><input type="text" id="company" name="company" placeholder="例）株式会社ケーユー運輸" autocomplete="organization"></label>
-          <label class="f"><span class="lb">フリガナ</span><input type="text" id="kana" name="kana" placeholder="カブシキガイシャ ケーユーウンユ"></label>
-          <label class="f"><span class="lb">ご担当者名 <em class="req">必須</em></span><input type="text" id="name" name="name" placeholder="例）高橋 太郎" autocomplete="name"></label>
-          <label class="f"><span class="lb">電話番号 <em class="req">必須</em></span><input type="tel" id="tel" name="tel" placeholder="048-952-2184" autocomplete="tel" inputmode="tel"></label>
-          <label class="f abf-wide"><span class="lb">メールアドレス <em class="req">必須</em></span><input type="email" id="email" name="email" placeholder="tyre@example.co.jp" autocomplete="email" inputmode="email"></label>
-          <div class="f abf-wide">
-            <span class="lb">ご住所 <small>タンク設置先</small></span>
-            <div class="abf-zip">
-              <input type="tel" id="zip" name="zip" maxlength="8" placeholder="郵便番号 3410037" inputmode="numeric" autocomplete="postal-code">
-              <span class="note" id="zipNote"></span>
-            </div>
-            <input type="text" id="addr" name="addr" placeholder="埼玉県三郷市彦江1-213-3" autocomplete="street-address">
-            <span class="note">※ 郵便番号を入力すると住所が自動入力されます。番地・建物名を追記してください。</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="abf-card">
-        <div class="abf-head"><span class="n">2</span><span>AdBlueのご利用状況</span></div>
-        <div class="abf-q">
-          <div class="qh"><span class="qn">Q1</span><span class="qt">既存のご契約先</span><em class="req">必須</em></div>
-          <input type="text" id="vendor" name="vendor" placeholder="ガソリンスタンド・販売店／未契約の場合は「なし」">
-          <span class="note">※ メーカー既存給水先の場合は、ご対応をお断りさせていただく場合がございます。</span>
-        </div>
-        <div class="abf-q">
-          <div class="qh"><span class="qn">Q2</span><span class="qt">月間使用量</span></div>
-          <div class="abf-inline"><input type="number" id="volume" name="volume" class="short" placeholder="1000" min="0" inputmode="numeric"><span class="unit">L / 月</span><span class="note">※ わからない場合は、下記の車両台数をご入力ください。</span></div>
-          <div class="abf-fleet">
-            <label><span>大型</span><input type="number" id="large" name="large" min="0" inputmode="numeric"><span>台</span></label>
-            <label><span>4t</span><input type="number" id="mid" name="mid" min="0" inputmode="numeric"><span>台</span></label>
-            <label><span>2〜3t</span><input type="number" id="small" name="small" min="0" inputmode="numeric"><span>台</span></label>
-            <label class="abf-wide"><span>その他</span><input type="text" id="other" name="other" placeholder="車種・台数など"></label>
-          </div>
-        </div>
-        <div class="abf-q">
-          <div class="qh"><span class="qn">Q3</span><span class="qt">現在のご購入価格（他社様の単価）</span><em class="opt">任意</em></div>
-          <div class="abf-inline"><input type="number" id="price" name="price" class="short" placeholder="85" min="0" inputmode="decimal"><span class="unit">円 / L</span><span class="note">（消費税別）</span></div>
-          <span class="note">※ ご記入いただくと、より具体的な価格でのご提案が可能です。</span>
-        </div>
-        <div class="abf-q">
-          <div class="qh"><span class="qn">Q4</span><span class="qt">ご希望の連絡方法</span></div>
-          <div class="abf-seg" id="seg" role="radiogroup" aria-label="ご希望の連絡方法">
-            <button type="button" class="on" data-v="メール" aria-pressed="true">メール</button>
-            <button type="button" data-v="お電話" aria-pressed="false">お電話</button>
-          </div>
-          <input type="hidden" id="contact" name="contact" value="メール">
-        </div>
-      </div>
-
-      <div class="abf-card abf-send">
-        <p class="note">ご記入いただいた内容は、AdBlueに関するご提案および資料送付の目的にのみ使用いたします。</p>
-        <div id="abErr" class="abf-err" hidden></div>
-        <button type="submit" class="btn btn-yl abf-submit" id="abSend">回答を送信する <span class="ar">→</span></button>
-      </div>
-    </form>
-
-    <div id="abThanks" class="abf-thanks" hidden>
-      <div class="tag">THANKS</div>
-      <h3>ご回答ありがとうございました</h3>
-      <p>担当者より3営業日以内にご連絡いたします。<br>お急ぎの場合は <a href="tel:0489522184">048-952-2184</a>（担当：高橋）までお電話ください。</p>
-    </div>
-    <iframe name="abGasFrame" id="abGasFrame" title="送信処理" hidden></iframe>
   </div>
 </section>
 
