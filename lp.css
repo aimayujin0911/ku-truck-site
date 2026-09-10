@@ -169,3 +169,48 @@ body.lp{background:var(--ink);color:#fff}
 .lpf .back:hover{background:var(--tl);color:#000}
 
 @media(max-width:860px){.ls{padding:76px 22px}.lcta{padding:90px 22px 80px}.lpf{padding:44px 22px 100px}}
+
+/* ── CONTACT FORM（GASアンケート同項目） ── */
+.abf{display:grid;gap:22px;max-width:960px}
+.abf-card{background:#fff;color:#000;border:4px solid #000;box-shadow:12px 12px 0 var(--tl);padding:28px 26px 30px}
+.abf-head{display:flex;align-items:center;gap:12px;font-family:var(--jpd);font-weight:900;font-size:22px;margin-bottom:22px}
+.abf-head .n{font-family:"Anton";font-size:26px;line-height:1;background:#000;color:var(--tl);width:44px;height:44px;display:grid;place-items:center;transform:rotate(-4deg)}
+.abf-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
+.abf .f{display:flex;flex-direction:column;gap:8px}
+.abf-wide{grid-column:1/-1}
+.abf .lb{font-family:"Archivo Black";font-size:11px;letter-spacing:.12em;color:#000;display:flex;align-items:center;gap:8px}
+.abf .lb small{font-family:var(--jpd);font-weight:500;font-size:12px;color:#5d7183;letter-spacing:0}
+.abf .req,.abf .opt{font-family:"Archivo Black";font-style:normal;font-size:9px;letter-spacing:.08em;padding:3px 7px;background:var(--tl);color:#000}
+.abf .opt{background:#e3e8eb;color:#333}
+.abf input[type=text],.abf input[type=tel],.abf input[type=email],.abf input[type=number]{width:100%;font-family:var(--jpd),sans-serif;font-size:16px;font-weight:500;color:#000;background:var(--paper);border:3px solid #000;padding:13px 14px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none;transition:box-shadow .15s}
+.abf input:focus{box-shadow:0 0 0 3px var(--tl)}
+.abf input::placeholder{color:#8a97a0}
+.abf-zip{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.abf-zip input{max-width:220px;letter-spacing:.08em}
+.abf .note{font-size:12px;line-height:1.7;color:#5d7183;font-weight:500}
+.abf-q{display:flex;flex-direction:column;gap:9px;padding:20px 0;border-top:2px dashed rgba(0,0,0,.18)}
+.abf-q:first-of-type{border-top:0;padding-top:0}
+.abf .qh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.abf .qn{font-family:"Anton";font-size:18px;background:#000;color:#fff;padding:2px 9px}
+.abf .qt{font-family:var(--jpd);font-weight:900;font-size:17px}
+.abf-inline{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.abf input.short{max-width:160px;font-family:"Anton";font-size:22px;letter-spacing:.02em}
+.abf .unit{font-family:"Archivo Black";font-size:12px;letter-spacing:.08em}
+.abf-fleet{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 18px;margin-top:6px}
+.abf-fleet label{display:flex;align-items:center;gap:10px;font-family:var(--jpd);font-weight:700;font-size:14px}
+.abf-fleet label>span:first-child{min-width:44px}
+.abf-fleet input{flex:1;min-width:0;padding:10px 12px}
+.abf-seg{display:inline-flex;border:3px solid #000;box-shadow:5px 5px 0 #000;background:#fff}
+.abf-seg button{font-family:var(--jpd);font-weight:900;font-size:15px;padding:12px 26px;border:0;background:#fff;color:#000;cursor:pointer}
+.abf-seg button+button{border-left:3px solid #000}
+.abf-seg button.on{background:#000;color:var(--tl)}
+.abf-send{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.abf-submit{font-size:16px;padding:20px 34px;background:var(--tl);color:#000;box-shadow:6px 6px 0 #000}
+.abf-submit:disabled{opacity:.6;cursor:default;transform:none}
+.abf-err{background:#000;color:#fff;font-weight:700;padding:12px 16px;border-left:6px solid var(--tl)}
+.abf-thanks{background:#fff;color:#000;border:4px solid #000;box-shadow:12px 12px 0 var(--tl);padding:40px 32px;max-width:960px}
+.abf-thanks h3{font-family:var(--jpd);font-weight:900;font-size:clamp(1.6rem,4vw,34px);margin:6px 0 14px}
+.abf-thanks p{font-size:15px;line-height:1.9;font-weight:500}
+.abf-thanks a{color:var(--tl2);font-family:"Anton";font-size:20px}
+#abGasFrame{width:0;height:0;border:0;position:absolute;left:-9999px}
+@media(max-width:760px){.abf-grid{grid-template-columns:1fr}.abf-fleet{grid-template-columns:1fr}.abf-card{padding:22px 18px 24px;box-shadow:8px 8px 0 var(--tl)}.abf-seg{display:flex}.abf-seg button{flex:1}}
