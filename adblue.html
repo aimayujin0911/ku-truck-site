@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="lp.css">
+<link rel="stylesheet" href="lp.css?v=20260918a">
 </head>
 <body class="lp">
 
@@ -49,9 +49,15 @@
 </div>
 <div class="sh-form" id="form">
 <div class="abf-top"><span class="stkr s1">正規品 ONLY</span><div class="abf-kicker">CONTACT — お見積り・ご相談</div><h2 class="abf-h">使用量を教えてください。<em>見積ります。</em></h2><p class="abf-lead">全国販売対応・1,000Lタンク給水限定。所要3分。</p></div>
-<form id="abForm" class="abf" action="https://script.google.com/macros/s/AKfycbw7P8k-NWX1WxDujhTyQHgGwE6Rczkf5qBI3hCpuGWngldTFXe3XDmIECdbl_OLndV3ew/exec" method="POST" target="abGasFrame" novalidate>
-      <div class="abf-card">
-        <div class="abf-head"><span class="n">1</span><span>貴社情報</span></div>
+<form id="abForm" class="abf abf-wizard" action="https://script.google.com/macros/s/AKfycbw7P8k-NWX1WxDujhTyQHgGwE6Rczkf5qBI3hCpuGWngldTFXe3XDmIECdbl_OLndV3ew/exec" method="POST" target="abGasFrame" novalidate>
+      <ol class="abf-prog" aria-label="入力ステップ">
+        <li class="on" data-step="1"><span class="pn">1</span><span class="pt">貴社情報</span></li>
+        <li data-step="2"><span class="pn">2</span><span class="pt">ご利用状況</span></li>
+      </ol>
+      <div class="abf-steps" id="abSteps">
+
+      <section class="abf-card abf-step is-active" data-step="1" aria-labelledby="abStep1Title">
+        <div class="abf-head"><span class="n">1</span><span id="abStep1Title">貴社情報</span></div>
         <div class="abf-grid">
           <label class="f"><span class="lb">会社名 <em class="req">必須</em></span><input type="text" id="company" name="company" placeholder="例）株式会社ケーユー運輸" autocomplete="organization"></label>
           <label class="f"><span class="lb">フリガナ</span><input type="text" id="kana" name="kana" placeholder="カブシキガイシャ ケーユーウンユ"></label>
@@ -68,10 +74,14 @@
             <span class="note">※ 郵便番号を入力すると住所が自動入力されます。番地・建物名を追記してください。</span>
           </div>
         </div>
-      </div>
+        <div class="abf-foot">
+          <div class="abf-err" data-err="1" hidden></div>
+          <button type="button" class="btn btn-yl abf-next" data-next="2">次へ <span class="ar">→</span></button>
+        </div>
+      </section>
 
-      <div class="abf-card">
-        <div class="abf-head"><span class="n">2</span><span>AdBlueのご利用状況</span></div>
+      <section class="abf-card abf-step" data-step="2" aria-labelledby="abStep2Title" hidden>
+        <div class="abf-head"><span class="n">2</span><span id="abStep2Title">AdBlueのご利用状況</span></div>
         <div class="abf-q">
           <div class="qh"><span class="qn">Q1</span><span class="qt">既存のご契約先</span><em class="req">必須</em></div>
           <input type="text" id="vendor" name="vendor" placeholder="ガソリンスタンド・販売店／未契約の場合は「なし」">
@@ -100,12 +110,16 @@
           </div>
           <input type="hidden" id="contact" name="contact" value="メール">
         </div>
-      </div>
+        <p class="note abf-privacy">ご記入いただいた内容は、AdBlueに関するご提案および資料送付の目的にのみ使用いたします。</p>
+        <div class="abf-foot">
+          <div class="abf-err" data-err="2" hidden></div>
+          <div class="abf-foot-btns">
+            <button type="button" class="abf-back" data-back="1">← 戻る</button>
+            <button type="submit" class="btn btn-yl abf-submit" id="abSend">回答を送信する <span class="ar">→</span></button>
+          </div>
+        </div>
+      </section>
 
-      <div class="abf-card abf-send">
-        <p class="note">ご記入いただいた内容は、AdBlueに関するご提案および資料送付の目的にのみ使用いたします。</p>
-        <div id="abErr" class="abf-err" hidden></div>
-        <button type="submit" class="btn btn-yl abf-submit" id="abSend">回答を送信する <span class="ar">→</span></button>
       </div>
     </form>
 <div id="abThanks" class="abf-thanks" hidden>
@@ -259,8 +273,59 @@
 <script>
 (function(){
   var form=document.getElementById('abForm'); if(!form) return;
-  var err=document.getElementById('abErr'), btn=document.getElementById('abSend'), frame=document.getElementById('abGasFrame');
+  var steps=[].slice.call(form.querySelectorAll('.abf-step')), wrap=document.getElementById('abSteps');
+  var prog=[].slice.call(form.querySelectorAll('.abf-prog li'));
+  var btn=document.getElementById('abSend'), frame=document.getElementById('abGasFrame');
   var seg=document.getElementById('seg'), contact=document.getElementById('contact');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur=1, busy=false;
+  // animationend が来ない環境（CSS未適用/アニメ無効）でも必ず進むフォールバック
+  function afterAnim(el,ms,cb){ var fired=false; function once(){ if(fired) return; fired=true; el.removeEventListener('animationend',once); cb(); }
+    el.addEventListener('animationend',once); var an=getComputedStyle(el).animationName; setTimeout(once, (!an||an==='none')?0:ms+150); }
+  function stepEl(n){return steps.filter(function(x){return +x.dataset.step===n;})[0];}
+  function errEl(n){return form.querySelector('.abf-err[data-err="'+n+'"]');}
+  function val(id){return (document.getElementById(id).value||'').trim();}
+  function showErr(n,msg){var e=errEl(n); e.textContent=msg; e.hidden=false;}
+  function clearErr(n){var e=errEl(n); e.hidden=true; e.textContent='';}
+  function validate(n){
+    var miss=[];
+    if(n===1){ if(!val('company'))miss.push('会社名'); if(!val('name'))miss.push('ご担当者名'); if(!val('tel'))miss.push('電話番号'); if(!/.+@.+\..+/.test(val('email')))miss.push('メールアドレス'); }
+    if(n===2){ if(!val('vendor'))miss.push('Q1 既存のご契約先'); }
+    if(miss.length){ showErr(n, miss.join('・')+' をご確認ください。'); return false; }
+    clearErr(n); return true;
+  }
+  function setProg(n){ prog.forEach(function(li){var k=+li.dataset.step; li.classList.toggle('on',k===n); li.classList.toggle('done',k<n);}); }
+  // スライド切替（leave→enter）。高さもアニメーション
+  function go(to){
+    if(busy||to===cur) return; busy=true;
+    var from=stepEl(cur), next=stepEl(to), dir=to>cur?1:-1;
+    var h0=wrap.offsetHeight;
+    wrap.style.height=h0+'px'; wrap.classList.add('is-anim');
+    // 次ステップの高さを計測
+    next.hidden=false; next.classList.add('is-measure'); var h1=next.offsetHeight; next.classList.remove('is-measure'); next.hidden=true;
+    if(reduce){ from.hidden=true; from.classList.remove('is-active'); next.hidden=false; next.classList.add('is-active'); wrap.style.height=''; wrap.classList.remove('is-anim'); finish(); return; }
+    from.classList.add(dir>0?'leave-left':'leave-right');
+    requestAnimationFrame(function(){ wrap.style.height=h1+'px'; });
+    afterAnim(from,300,function onL(){
+      from.hidden=true; from.classList.remove('is-active','leave-left','leave-right');
+      next.hidden=false; next.classList.add('is-active', dir>0?'enter-right':'enter-left');
+      afterAnim(next,420,function onE(){
+        next.classList.remove('enter-right','enter-left');
+        wrap.style.height=''; wrap.classList.remove('is-anim'); finish();
+      });
+    });
+    function finish(){
+      cur=to; setProg(to); busy=false;
+      var f=next.querySelector('input,button'); if(f&&to>1){ try{f.focus({preventScroll:true});}catch(e){} }
+      var top=form.getBoundingClientRect().top+window.pageYOffset-110; if(window.innerWidth<1100) window.scrollTo({top:top,behavior:'smooth'});
+    }
+  }
+  form.addEventListener('click',function(e){
+    var nx=e.target.closest('[data-next]'); if(nx){ e.preventDefault(); if(validate(cur)) go(+nx.dataset.next); return; }
+    var bk=e.target.closest('[data-back]'); if(bk){ e.preventDefault(); go(+bk.dataset.back); return; }
+  });
+  // Enterで次へ（ステップ1）
+  form.addEventListener('keydown',function(e){ if(e.key==='Enter'&&cur===1&&e.target.tagName==='INPUT'){ e.preventDefault(); if(validate(1)) go(2); } });
   seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;contact.value=b.dataset.v;
     [].forEach.call(seg.querySelectorAll('button'),function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});});
   var zip=document.getElementById('zip'), zipNote=document.getElementById('zipNote'), addr=document.getElementById('addr');
@@ -269,19 +334,16 @@
     window[cb]=function(res){var r=res&&res.results&&res.results[0];zipNote.textContent=r?'':'住所を取得できませんでした。手入力をお願いします。';if(r)addr.value=r.address1+r.address2+r.address3;delete window[cb];sc.remove();};
     sc.onerror=function(){zipNote.textContent='住所を取得できませんでした。手入力をお願いします。';delete window[cb];sc.remove();};
     sc.src='https://zipcloud.ibsnet.co.jp/api/search?zipcode='+d+'&callback='+cb;document.body.appendChild(sc);});
-  function val(id){return (document.getElementById(id).value||'').trim();}
   var sending=false, timer=null;
   function done(){ if(!sending) return; sending=false; clearTimeout(timer);
-    form.hidden=true; var th=document.getElementById('abThanks'); th.hidden=false; th.scrollIntoView({behavior:'smooth',block:'start'}); }
+    form.hidden=true; var th=document.getElementById('abThanks'); th.hidden=false; th.classList.add('enter-right'); th.scrollIntoView({behavior:'smooth',block:'start'}); }
   frame.addEventListener('load',done);
   form.addEventListener('submit',function(e){
-    var miss=[];
-    if(!val('company'))miss.push('会社名'); if(!val('name'))miss.push('ご担当者名'); if(!val('tel'))miss.push('電話番号');
-    if(!/.+@.+\..+/.test(val('email')))miss.push('メールアドレス'); if(!val('vendor'))miss.push('Q1 既存のご契約先');
-    if(miss.length){e.preventDefault();err.textContent=miss.join('・')+' をご確認ください。';err.hidden=false;err.scrollIntoView({behavior:'smooth',block:'center'});return;}
-    err.hidden=true; sending=true; btn.disabled=true; btn.textContent='送信中…';
-    // 非表示iframeへPOST（GAS doPost）。応答は読めないため iframe の load で完了表示。保険で8秒後にも完了扱い
-    timer=setTimeout(done,8000);
+    if(cur!==2){ e.preventDefault(); if(validate(1)) go(2); return; }
+    if(!validate(1)){ e.preventDefault(); go(1); return; }
+    if(!validate(2)){ e.preventDefault(); return; }
+    sending=true; btn.disabled=true; btn.textContent='送信中…';
+    timer=setTimeout(done,8000); // 非表示iframeへPOST（GAS doPost）。load で完了表示、保険で8秒
   });
 })();
 </script>
