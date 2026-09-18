@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="lp.css?v=20260918a">
+<link rel="stylesheet" href="lp.css?v=20260918c">
 </head>
 <body class="lp">
 
@@ -298,7 +298,7 @@
   // スライド切替（leave→enter）。高さもアニメーション
   function go(to){
     if(busy||to===cur) return; busy=true;
-    var from=stepEl(cur), next=stepEl(to), dir=to>cur?1:-1;
+    var from=stepEl(cur), next=stepEl(to), dir=to>cur?1:-1, y0=window.pageYOffset;
     var h0=wrap.offsetHeight;
     wrap.style.height=h0+'px'; wrap.classList.add('is-anim');
     // 次ステップの高さを計測
@@ -317,7 +317,8 @@
     function finish(){
       cur=to; setProg(to); busy=false;
       var f=next.querySelector('input,button'); if(f&&to>1){ try{f.focus({preventScroll:true});}catch(e){} }
-      var top=form.getBoundingClientRect().top+window.pageYOffset-110; if(window.innerWidth<1100) window.scrollTo({top:top,behavior:'smooth'});
+      if(window.innerWidth<1100){ var top=form.getBoundingClientRect().top+window.pageYOffset-110; window.scrollTo({top:top,behavior:'smooth'}); }
+      else { window.scrollTo(0,y0); } // PCではフォーカス移動によるスクロール飛びを抑止
     }
   }
   form.addEventListener('click',function(e){
