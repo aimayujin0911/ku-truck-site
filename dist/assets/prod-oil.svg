@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="トラック用エンジンオイル販売のイメージ">
+  <defs>
+    <pattern id="oi-st" width="28" height="28" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="28" height="28" fill="none"/>
+      <rect width="14" height="28" fill="#ffffff" opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <rect width="640" height="400" fill="#101618"/>
+  <rect width="640" height="400" fill="url(#oi-st)"/>
+  <circle cx="300" cy="196" r="156" fill="#40b8d0" opacity="0.16"/>
+  <rect x="0" y="336" width="640" height="8" fill="#40b8d0" opacity="0.55"/>
+
+  <!-- drum (back right) -->
+  <g stroke="#000" stroke-width="6" stroke-linejoin="round">
+    <rect x="452" y="150" width="132" height="186" rx="10" fill="#334046"/>
+    <ellipse cx="518" cy="150" rx="66" ry="16" fill="#41525a"/>
+    <path d="M456 196h124M456 240h124M456 284h124" stroke="#101618" stroke-width="7"/>
+  </g>
+
+  <!-- oil bottle (main, tilted) -->
+  <g transform="rotate(-14 268 240)" stroke="#000" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M168 336V166c0-12 8-22 20-24l24-6v-18h64v18l24 6c12 2 20 12 20 24v170z" fill="#f4f7f8"/>
+    <rect x="216" y="86" width="56" height="34" rx="6" fill="#d99a2b"/>
+    <path d="M228 94v18M244 94v18M260 94v18" stroke="#5c3f0d" stroke-width="5"/>
+    <rect x="184" y="200" width="120" height="104" rx="5" fill="#ffffff"/>
+    <rect x="184" y="200" width="120" height="28" fill="#101618"/>
+  </g>
+  <g transform="rotate(-14 268 240)">
+    <text x="244" y="220" text-anchor="middle" font-family="'Arial Black',Impact,sans-serif" font-size="14" fill="#40b8d0" letter-spacing="1.5">ENGINE OIL</text>
+    <text x="244" y="262" text-anchor="middle" font-family="'Arial Black',Impact,sans-serif" font-size="27" fill="#101618">10W-30</text>
+    <text x="244" y="290" text-anchor="middle" font-family="'Arial Black',Impact,sans-serif" font-size="13" fill="#48606a" letter-spacing="1.5">DIESEL / 20L</text>
+  </g>
+
+  <!-- oil drops -->
+  <path d="M396 92c0 0-27 29-27 46a27 27 0 0 0 54 0c0-17-27-46-27-46z" fill="#d99a2b" stroke="#000" stroke-width="6"/>
+  <path d="M362 44c0 0-14 15-14 24a14 14 0 0 0 28 0c0-9-14-24-14-24z" fill="#e8b95c" stroke="#000" stroke-width="5"/>
+
+</svg>

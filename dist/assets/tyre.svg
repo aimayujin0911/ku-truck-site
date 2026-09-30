@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="tyre">
+  <!-- tread blocks around the rim -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#000" stroke-width="7.6" stroke-dasharray="6.2 5.95"/>
+  <!-- tyre body + transparent hub ring + black centre disc (even-odd) -->
+  <path fill="#000" fill-rule="evenodd"
+        d="M7.5,50 a42.5,42.5 0 1,0 85,0 a42.5,42.5 0 1,0 -85,0 Z
+           M30,50 a20,20 0 1,0 40,0 a20,20 0 1,0 -40,0 Z
+           M36,50 a14,14 0 1,0 28,0 a14,14 0 1,0 -28,0 Z"/>
+</svg>

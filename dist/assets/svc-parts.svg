@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="用品販売（タイヤ・AdBlue・エンジンオイル）とトラック売買のイメージ">
+  <defs>
+    <pattern id="pt-st" width="28" height="28" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="28" height="28" fill="none"/>
+      <rect width="14" height="28" fill="#ffffff" opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <rect width="640" height="360" fill="#1b2427"/>
+  <rect width="640" height="360" fill="url(#pt-st)"/>
+  <path d="M0 250 L640 118 L640 250z" fill="#40b8d0" opacity="0.2"/>
+  <circle cx="320" cy="176" r="150" fill="#40b8d0" opacity="0.16"/>
+
+  <!-- shelf line -->
+  <rect x="24" y="268" width="592" height="9" fill="#40b8d0" opacity="0.75"/>
+
+  <!-- tyre -->
+  <g>
+    <circle cx="128" cy="192" r="78" fill="#2c3438" stroke="#000" stroke-width="6"/>
+    <circle cx="128" cy="192" r="68" fill="none" stroke="#101618" stroke-width="13" stroke-dasharray="9 7"/>
+    <circle cx="128" cy="192" r="58" fill="none" stroke="#000" stroke-width="4" opacity="0.6"/>
+    <circle cx="128" cy="192" r="40" fill="#e7edee" stroke="#000" stroke-width="6"/>
+    <circle cx="128" cy="192" r="13" fill="#40b8d0" stroke="#000" stroke-width="5"/>
+  </g>
+
+  <!-- AdBlue jug -->
+  <g stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M252 268V148c0-11 8-19 19-19h24l5-16h52l5 16h24c11 0 19 8 19 19v120z" fill="#f4f7f8"/>
+    <rect x="330" y="106" width="46" height="26" rx="5" fill="#40b8d0"/>
+    <path d="M272 142h32c7 0 13 6 13 13v6c0 7-6 13-13 13h-32" fill="none"/>
+    <rect x="266" y="196" width="128" height="60" rx="4" fill="#ffffff"/>
+    <rect x="266" y="196" width="128" height="20" fill="#40b8d0"/>
+  </g>
+  <text x="330" y="211" text-anchor="middle" font-family="'Arial Black',Impact,sans-serif" font-size="12" fill="#0b2b34" letter-spacing="1">AdBlue®</text>
+  <text x="330" y="243" text-anchor="middle" font-family="'Arial Black',Impact,sans-serif" font-size="20" fill="#101618">正規品</text>
+
+  <!-- oil bottle -->
+  <g stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M446 268V158c0-9 6-16 15-18l18-4v-13h48v13l18 4c9 2 15 9 15 18v110z" fill="#dfe8ea"/>
+    <rect x="482" y="98" width="42" height="26" rx="5" fill="#d99a2b"/>
+    <rect x="458" y="192" width="90" height="60" rx="4" fill="#ffffff"/>
+    <rect x="458" y="192" width="90" height="20" fill="#101618"/>
+  </g>
+  <text x="503" y="207" text-anchor="middle" font-family="'Arial Black',Impact,sans-serif" font-size="11" fill="#40b8d0" letter-spacing="1">ENGINE OIL</text>
+  <text x="503" y="238" text-anchor="middle" font-family="'Arial Black',Impact,sans-serif" font-size="19" fill="#101618">10W-30</text>
+</svg>
