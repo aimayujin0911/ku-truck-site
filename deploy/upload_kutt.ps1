@@ -1,4 +1,4 @@
-# shinko-ghd.jp/kutt へ dist/ を FTPS でアップロードする
+﻿# shinko-ghd.jp/kutt へ dist/ を FTPS でアップロードする
 # 使い方: PowerShell で  .\deploy\upload_kutt.ps1   （実行するとパスワードを伏せ字で聞きます。履歴・ファイルには残りません）
 $ErrorActionPreference = "Stop"
 $FtpHost = "sv14321.xserver.jp"; $User = "kutt@shinko-ghd.jp"; $Remote = "/"   # FTPユーザーのホームが /kutt 相当のはず
