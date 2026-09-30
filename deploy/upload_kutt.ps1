@@ -1,18 +1,34 @@
 # shinko-ghd.jp/kutt へ dist/ を FTPS でアップロードする
-# 使い方（PowerShell）:  $env:KUTT_FTP_PASS = Read-Host -AsSecureString | ConvertFrom-SecureString -AsPlainText ; .\deploy\upload_kutt.ps1
-#   もしくは  $env:KUTT_FTP_PASS="<パスワード>"; .\deploy\upload_kutt.ps1   （履歴に残るので前者推奨）
+# 使い方: PowerShell で  .\deploy\upload_kutt.ps1   （実行するとパスワードを伏せ字で聞きます。履歴・ファイルには残りません）
 $ErrorActionPreference = "Stop"
-$Host_ = "sv14321.xserver.jp"; $User = "kutt@shinko-ghd.jp"; $Remote = "/"   # FTPユーザーのホームが /kutt 相当
-$Pass = $env:KUTT_FTP_PASS; if (-not $Pass) { throw "環境変数 KUTT_FTP_PASS にFTPパスワードを入れてください" }
+$FtpHost = "sv14321.xserver.jp"; $User = "kutt@shinko-ghd.jp"; $Remote = "/"   # FTPユーザーのホームが /kutt 相当のはず
+
+$sec = Read-Host "FTP password for $User" -AsSecureString
+$bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($sec)
+try { $Pass = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($bstr) } finally { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr) }
+if (-not $Pass) { throw "パスワードが空です" }
+
+# curl に認証情報を渡すときはコマンドラインに出さない（-K で設定を標準入力から渡す）
+$cfg = "user = `"${User}:${Pass}`"`nssl-reqd`nsilent`nshow-error`nfail`n"
+
+Write-Host "ログイン確認中..."
+$list = $cfg | & curl.exe -K - --list-only "ftp://$FtpHost$Remote" 2>&1
+if ($LASTEXITCODE -ne 0) {
+  Write-Host "ログインに失敗しました: $list" -ForegroundColor Red
+  Write-Host "確認: ①パスワードの再入力 ②Xserverサーバーパネル > FTP制限設定 で接続元IPが許可されているか ③ユーザー名が $User で正しいか"
+  exit 1
+}
+Write-Host "ログインOK。現在のリモート一覧:"; $list | ForEach-Object { "  $_" }
+
 $root = Join-Path (Split-Path $PSScriptRoot -Parent) "dist"
-if (-not (Test-Path "$root\index.html")) { throw "dist/index.html がありません。先に dist を作成してください" }
+if (-not (Test-Path "$root\index.html")) { throw "dist/index.html がありません" }
 $files = Get-ChildItem -Path $root -Recurse -File
 $i = 0
 foreach ($f in $files) {
   $rel = $f.FullName.Substring($root.Length + 1).Replace("\", "/")
-  $url = "ftp://$Host_$Remote$rel"
   $i++; Write-Host ("[{0}/{1}] {2}" -f $i, $files.Count, $rel)
-  & curl.exe --silent --show-error --fail --ssl-reqd --ftp-create-dirs -u "${User}:${Pass}" -T $f.FullName $url
+  $cfg | & curl.exe -K - --ftp-create-dirs -T $f.FullName "ftp://$FtpHost$Remote$rel"
   if ($LASTEXITCODE -ne 0) { throw "upload failed: $rel" }
 }
-Write-Host "done. https://shinko-ghd.jp/kutt/"
+$Pass = $null; $cfg = $null
+Write-Host "done. https://shinko-ghd.jp/kutt/" -ForegroundColor Green
