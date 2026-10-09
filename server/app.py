@@ -161,6 +161,63 @@ async def contact(request: Request):
     return RedirectResponse("/thanks.html", status_code=303)
 
 
+# ── 受信履歴（Googleスプレッドシート）────────────────────────────────
+# 本番(Xserver)のフォームは FormSubmit 経由。FormSubmit の _webhook でここに届いた内容を
+# 「HPお問い合わせ受信履歴」スプレッドシートの KU タブへ1件1行で追記する（LIGO側で後から確認するため）。
+INBOX_SHEET_ID = os.environ.get("INBOX_SHEET_ID", "")
+INBOX_TAB = os.environ.get("INBOX_TAB", "KU")
+WEBHOOK_KEY = os.environ.get("WEBHOOK_KEY", "")
+_JP_RE = re.compile(r"[ぁ-んァ-ヶ一-龥]")
+_SALES = ["突然のご連絡", "と申します", "弊社", "ご提案", "ご案内", "サービス", "集客", "代行", "セミナー",
+          "ウェビナー", "営業", "先日ご連絡", "ご担当者様", "導入", "無料", "資料", "費用対効果", "貴社", "御社"]
+
+
+def _sheet_token() -> str:
+    r = httpx.get("http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token",
+                  params={"scopes": "https://www.googleapis.com/auth/spreadsheets"},
+                  headers={"Metadata-Flavor": "Google"}, timeout=3)
+    r.raise_for_status()
+    return r.json()["access_token"]
+
+
+def _sheet_append(row: list) -> str:
+    if not INBOX_SHEET_ID:
+        return "skipped(no sheet)"
+    try:
+        import urllib.parse
+        rng = urllib.parse.quote(f"'{INBOX_TAB}'!A1", safe="")
+        r = httpx.post(f"https://sheets.googleapis.com/v4/spreadsheets/{INBOX_SHEET_ID}/values/{rng}:append",
+                       params={"valueInputOption": "RAW", "insertDataOption": "INSERT_ROWS"},
+                       headers={"Authorization": f"Bearer {_sheet_token()}"},
+                       json={"values": [[("" if v is None else str(v)) for v in row]]}, timeout=8)
+        return "ok" if r.status_code == 200 else f"error:{r.status_code}:{r.text[:120]}"
+    except Exception as e:
+        return f"error:{type(e).__name__}"
+
+
+@app.post("/hooks/formsubmit")
+async def formsubmit_webhook(request: Request):
+    if not WEBHOOK_KEY or request.query_params.get("k") != WEBHOOK_KEY:
+        return PlainTextResponse("forbidden", status_code=403)
+    try:
+        body = await request.json()
+    except Exception:
+        body = dict(await request.form())
+    d = body.get("form_data", body) if isinstance(body, dict) else {}
+    g = lambda k: str(d.get(k) or "").strip()
+    msg = g("お問い合わせ内容")
+    hits = sum(1 for w in _SALES if w in msg)
+    verdict = "営業の可能性" if hits >= 3 or len(re.findall(r"https?://|www\.", msg)) >= 3 else (
+        "英文・要確認" if not _JP_RE.search(msg) else "通常")
+    known = {"お名前", "会社名", "電話番号", "メールアドレス", "お問い合わせ種別", "お問い合わせ内容"}
+    extra = " / ".join(f"{k}: {v}" for k, v in d.items() if k not in known and not str(k).startswith("_") and v)
+    jst = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(time.time() + 9 * 3600))
+    sheet = _sheet_append([jst, verdict, g("お問い合わせ種別"), g("会社名"), g("お名前"), g("電話番号"),
+                           g("メールアドレス"), msg, extra, "FormSubmit経由", "contact-ku@shinko-ghd.jp", ""])
+    _log("formsubmit_webhook", sheet=sheet, verdict=verdict, name=g("お名前"), email=g("メールアドレス"))
+    return {"ok": True}
+
+
 @app.get("/health", response_class=PlainTextResponse)
 def health():
     return f"ok site={SITE_DIR} mail={'on' if (SMTP_HOST and CONTACT_TO) else 'off'} slack={'on' if SLACK_WEBHOOK_URL else 'off'}"
