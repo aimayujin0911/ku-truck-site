@@ -154,3 +154,26 @@
     if (e.key === 'Escape') closeLine();
   });
 })();
+
+/* 迷惑送信対策（お問い合わせ・FormSubmit）
+   見えない欄/見えないチェックボックス/表示から3秒未満 → 送らずに完了ページへ（ボットに悟らせない）
+   本文に日本語なし → 件名【英文・要確認】、営業らしい文面/URL多数 → 件名【営業の可能性】（破棄はしない） */
+(function(){
+  var f=document.getElementById('contact-form'); if(!f) return;
+  var t0=Date.now();
+  var SALES=['突然のご連絡','と申します','弊社','ご提案','ご案内','サービス','集客','代行','セミナー','ウェビナー','営業','先日ご連絡','ご担当者様','導入','無料','資料','費用対効果','貴社','御社'];
+  f.addEventListener('submit',function(e){
+    var h=f.querySelector('[name=_honey]'), c=f.querySelector('[name=subscribe_newsletter]');
+    if((h&&h.value)||(c&&c.checked)||(Date.now()-t0<3000)){
+      e.preventDefault(); var n=f.querySelector('[name=_next]'); location.href=n?n.value:'thanks.html'; return;
+    }
+    var m=(f.querySelector('#f-msg')||{}).value||'', s=f.querySelector('[name=_subject]');
+    if(s){
+      var base='【KU公式サイト】お問い合わせ', hits=SALES.filter(function(w){return m.indexOf(w)>=0;}).length,
+          urls=(m.match(/https?:\/\/|www\./gi)||[]).length, tag='';
+      if(hits>=3||urls>=3) tag='【営業の可能性】'; else if(!/[ぁ-んァ-ヶ一-龥]/.test(m)) tag='【英文・要確認】';
+      s.value=tag+base;
+    }
+    if(c) c.disabled=true; // チェックボックスはメール本文に載せない
+  });
+})();
