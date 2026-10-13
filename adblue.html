@@ -50,7 +50,7 @@
 <div class="sh-form" id="form">
 <div class="abf-top"><span class="stkr s1">正規品 ONLY</span><div class="abf-kicker">CONTACT — お見積り・ご相談</div><h2 class="abf-h">使用量を教えてください。<em>見積ります。</em></h2><p class="abf-lead">全国販売対応・1,000Lタンク給水限定。所要3分。</p></div>
 <form id="abForm" class="abf abf-wizard" action="https://script.google.com/macros/s/AKfycbw7P8k-NWX1WxDujhTyQHgGwE6Rczkf5qBI3hCpuGWngldTFXe3XDmIECdbl_OLndV3ew/exec" method="POST" target="abGasFrame" novalidate>
-<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+<input type="text" name="zq_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
 <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden"><label>ニュースレターを受け取る<input type="checkbox" name="subscribe_newsletter" value="1" tabindex="-1" autocomplete="off"></label></div>
 <input type="hidden" name="_t" id="abT" value="">
       <ol class="abf-prog" aria-label="入力ステップ">
@@ -344,7 +344,7 @@
   frame.addEventListener('load',done);
   // 迷惑送信対策: 見えない欄・見えないチェックボックス・表示から3秒未満は送らずに完了表示（GAS側でも同じ判定）
   var abT=document.getElementById('abT'), t0=Date.now(); if(abT) abT.value=String(t0);
-  function isBot(){ var h=form.querySelector('[name=website]'), c=form.querySelector('[name=subscribe_newsletter]');
+  function isBot(){ var h=form.querySelector('[name=zq_hp]'), c=form.querySelector('[name=subscribe_newsletter]');
     return (h&&h.value)||(c&&c.checked)||(Date.now()-t0<3000); }
   form.addEventListener('submit',function(e){
     if(cur===2 && isBot()){ e.preventDefault(); sending=true; done(); return; }
